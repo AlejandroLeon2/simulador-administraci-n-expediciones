@@ -1,0 +1,222 @@
+export const astronautas = [
+  {
+    "id": 1,
+    "nombre": "Emma Carter",
+    "especialidad": "Ingeniero",
+    "experiencia": 65,
+    "energia": 100,
+    "salud": 100,
+    "estado": "Disponible",
+    "expediciones": 0,
+    "imagen": "../assets/astronauta.jpeg"
+  },
+  {
+    "id": 2,
+    "nombre": "James Rodriguez",
+    "especialidad": "Médico",
+    "experiencia": 72,
+    "energia": 100,
+    "salud": 100,
+    "estado": "Disponible",
+    "expediciones": 0,
+    "imagen": "../assets/astronauta.jpeg"
+  },
+  {
+    "id": 3,
+    "nombre": "Sarah Chen",
+    "especialidad": "Piloto",
+    "experiencia": 58,
+    "energia": 100,
+    "salud": 100,
+    "estado": "Disponible",
+    "expediciones": 0,
+    "imagen": "../assets/astronauta.jpeg"
+  },
+  {
+    "id": 4,
+    "nombre": "Michael Foster",
+    "especialidad": "Ingeniero",
+    "experiencia": 80,
+    "energia": 100,
+    "salud": 100,
+    "estado": "Disponible",
+    "expediciones": 0,
+    "imagen": "../assets/astronauta.jpeg"
+  },
+  {
+    "id": 5,
+    "nombre": "Lisa Park",
+    "especialidad": "Científico",
+    "experiencia": 45,
+    "energia": 100,
+    "salud": 100,
+    "estado": "Disponible",
+    "expediciones": 0,
+    "imagen": "../assets/astronauta.jpeg"
+  },
+  {
+    "id": 6,
+    "nombre": "David Kim",
+    "especialidad": "Médico",
+    "experiencia": 60,
+    "energia": 100,
+    "salud": 100,
+    "estado": "Disponible",
+    "expediciones": 0,
+    "imagen": "../assets/astronauta.jpeg"
+  },
+  {
+    "id": 7,
+    "nombre": "Anna Martinez",
+    "especialidad": "Piloto",
+    "experiencia": 75,
+    "energia": 100,
+    "salud": 100,
+    "estado": "Disponible",
+    "expediciones": 0,
+    "imagen": "../assets/astronauta.jpeg"
+  },
+  {
+    "id": 8,
+    "nombre": "Robert Wilson",
+    "especialidad": "Ingeniero",
+    "experiencia": 55,
+    "energia": 100,
+    "salud": 100,
+    "estado": "Disponible",
+    "expediciones": 0,
+    "imagen": "../assets/astronauta.jpeg"
+  },
+  {
+    "id": 9,
+    "nombre": "Emily Davis",
+    "especialidad": "Científico",
+    "experiencia": 68,
+    "energia": 100,
+    "salud": 100,
+    "estado": "Disponible",
+    "expediciones": 0,
+    "imagen": "../assets/astronauta.jpeg"
+  },
+  {
+    "id": 10,
+    "nombre": "Christopher Lee",
+    "especialidad": "Médico",
+    "experiencia": 82,
+    "energia": 100,
+    "salud": 100,
+    "estado": "Disponible",
+    "expediciones": 0,
+    "imagen": "../assets/astronauta.jpeg"
+  },
+  {
+    "id": 11,
+    "nombre": "Jessica Taylor",
+    "especialidad": "Piloto",
+    "experiencia": 48,
+    "energia": 100,
+    "salud": 100,
+    "estado": "Disponible",
+    "expediciones": 0,
+    "imagen": "../assets/astronauta.jpeg"
+  },
+  {
+    "id": 12,
+    "nombre": "Daniel Brown",
+    "especialidad": "Ingeniero",
+    "experiencia": 70,
+    "energia": 100,
+    "salud": 100,
+    "estado": "Disponible",
+    "expediciones": 0,
+    "imagen": "../assets/astronauta.jpeg"
+  },
+  {
+    "id": 13,
+    "nombre": "Amanda White",
+    "especialidad": "Científico",
+    "experiencia": 52,
+    "energia": 100,
+    "salud": 100,
+    "estado": "Disponible",
+    "expediciones": 0,
+    "imagen": "../assets/astronauta.jpeg"
+  },
+  {
+    "id": 14,
+    "nombre": "Thomas Anderson",
+    "especialidad": "Médico",
+    "experiencia": 63,
+    "energia": 100,
+    "salud": 100,
+    "estado": "Disponible",
+    "expediciones": 0,
+    "imagen": "../assets/astronauta.jpeg"
+  },
+  {
+    "id": 15,
+    "nombre": "Michelle Garcia",
+    "especialidad": "Piloto",
+    "experiencia": 78,
+    "energia": 100,
+    "salud": 100,
+    "estado": "Disponible",
+    "expediciones": 0,
+    "imagen": "../assets/astronauta.jpeg"
+  },
+  {
+    "id": 16,
+    "nombre": "Kevin Johnson",
+    "especialidad": "Ingeniero",
+    "experiencia": 57,
+    "energia": 100,
+    "salud": 100,
+    "estado": "Disponible",
+    "expediciones": 0,
+    "imagen": "../assets/astronauta.jpeg"
+  },
+  {
+    "id": 17,
+    "nombre": "Rachel Green",
+    "especialidad": "Científico",
+    "experiencia": 73,
+    "energia": 100,
+    "salud": 100,
+    "estado": "Disponible",
+    "expediciones": 0,
+    "imagen": "../assets/astronauta.jpeg"
+  },
+  {
+    "id": 18,
+    "nombre": "Brian Miller",
+    "especialidad": "Médico",
+    "experiencia": 67,
+    "energia": 100,
+    "salud": 100,
+    "estado": "Disponible",
+    "expediciones": 0,
+    "imagen": "../assets/astronauta.jpeg"
+  },
+  {
+    "id": 19,
+    "nombre": "Nicole Thompson",
+    "especialidad": "Piloto",
+    "experiencia": 85,
+    "energia": 100,
+    "salud": 100,
+    "estado": "Disponible",
+    "expediciones": 0,
+    "imagen": "../assets/astronauta.jpeg"
+  },
+  {
+    "id": 20,
+    "nombre": "Andrew Clark",
+    "especialidad": "Ingeniero",
+    "experiencia": 50,
+    "energia": 100,
+    "salud": 100,
+    "estado": "Disponible",
+    "expediciones": 0,
+    "imagen": "../assets/astronauta.jpeg"
+  }
+];

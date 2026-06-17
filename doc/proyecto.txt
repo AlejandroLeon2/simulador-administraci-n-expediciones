@@ -1,0 +1,497 @@
+PROYECTO 2
+SIMULADOR DE EXPEDICIÓN ESPACIAL
+Operación: Nova Horizon
+
+Introducción
+La humanidad ha logrado establecer una base científica en el planeta Nova Horizon, ubicado a cientos de años luz de la Tierra.
+Sin embargo, la colonia depende de expediciones periódicas para obtener recursos, investigar nuevas zonas y garantizar la supervivencia de sus habitantes.
+El objetivo de este proyecto es desarrollar un sistema que permita administrar una expedición espacial completa.
+El usuario será el comandante de la misión y deberá tomar decisiones estratégicas para conformar el equipo de astronautas, administrar los recursos disponibles y seleccionar las misiones más adecuadas.
+Todo el sistema deberá desarrollarse utilizando únicamente:
+HTML5
+Tailwind CSS 4.3
+CSS (si es necesario)
+JavaScript Vanilla
+
+No se permite utilizar bases de datos ni tecnologías externas.
+
+Contexto
+La colonia Nova Horizon cuenta con recursos limitados.
+Cada misión implica riesgos y consume recursos.
+Los astronautas poseen habilidades diferentes.
+Elegir un equipo inadecuado puede provocar el fracaso de la expedición.
+El comandante deberá administrar correctamente todos los recursos disponibles para mantener la colonia funcionando.
+
+Historia
+La Agencia Espacial Internacional ha detectado señales provenientes de una zona inexplorada.
+Se sospecha que allí existen enormes reservas de minerales capaces de solucionar la crisis energética de la Tierra.
+Sin embargo, la región presenta condiciones extremadamente peligrosas.
+La agencia necesita un comandante capaz de organizar expediciones exitosas.
+Cada decisión afectará el desarrollo de la misión.
+
+Objetivo General
+Desarrollar un simulador de administración de expediciones espaciales donde el usuario gestione astronautas, recursos y misiones utilizando JavaScript Vanilla.
+
+Objetivos Específicos
+El proyecto deberá demostrar dominio de:
+Funciones
+Objetos
+Arreglos
+Métodos avanzados de arreglos
+Manipulación del DOM
+Eventos
+Delegación de eventos
+Organización del código
+
+Competencias que serán evaluadas
+El estudiante deberá demostrar que sabe:
+✔ Modelar datos complejos
+✔ Resolver problemas mediante programación
+✔ Crear interfaces dinámicas
+✔ Organizar información mediante objetos
+✔ Manipular el DOM dinámicamente
+✔ Aplicar lógica utilizando arreglos
+
+Alcance
+El sistema permitirá administrar:
+astronautas
+recursos
+misiones
+resultados
+estadísticas
+Todo deberá realizarse desde una única aplicación web.
+
+Tecnologías Permitidas
+HTML
+CSS
+Tailwind CSS 4.3
+JavaScript Vanilla
+
+Tecnologías Prohibidas
+No se permite utilizar:
+React
+Vue
+Angular
+Bootstrap
+jQuery
+Node.js
+APIs
+LocalStorage
+SessionStorage
+Bases de datos
+Fetch
+Promesas
+Async/Await
+
+Modelo de Datos
+Astronauta
+
+{
+    id:1,
+    nombre:"Emma Carter",
+    especialidad:"Ingeniero",
+    experiencia:65,
+    energia:100,
+    salud:100,
+    estado:"Disponible",
+    expediciones:0
+}
+
+
+Recursos
+
+{
+    oxigeno:500,
+    combustible:700,
+    comida:450,
+    energia:300
+}
+
+
+Misión
+
+{
+    id:1,
+    nombre:"Explorar Cráter Atlas",
+    dificultad:3,
+    recompensa:120,
+    combustible:90,
+    oxigeno:70,
+    astronautas:4,
+    especialidades:[
+        "Ingeniero",
+        "Médico"
+    ]
+}
+
+
+Historial
+
+{
+    fecha:"",
+    nombreMision:"",
+    resultado:"Éxito",
+    recompensa:200
+}
+
+
+Requerimientos Funcionales
+RF01
+Mostrar pantalla principal.
+
+RF02
+Mostrar todos los astronautas disponibles.
+Mínimo:
+20 astronautas.
+
+RF03
+Cada astronauta deberá mostrar:
+fotografía (puede ser un ícono)
+nombre
+especialidad
+experiencia
+energía
+salud
+estado
+
+RF04
+Permitir agregar astronautas.
+
+RF05
+Permitir modificar información.
+
+RF06
+Permitir eliminar astronautas.
+
+RF07
+Mostrar un panel con los recursos disponibles.
+Debe actualizarse automáticamente.
+
+RF08
+Mostrar una lista de misiones.
+Mínimo:
+12 misiones.
+
+RF09
+Cada misión deberá indicar:
+dificultad
+recompensa
+combustible necesario
+oxígeno requerido
+cantidad mínima de astronautas
+especialidades requeridas
+
+RF10
+Permitir seleccionar astronautas para la misión.
+
+RF11
+Validar automáticamente:
+cantidad mínima
+recursos disponibles
+especialidades
+
+RF12
+Si la misión puede realizarse
+Habilitar el botón
+"Iniciar misión".
+
+RF13
+Al iniciar la misión
+Actualizar:
+combustible
+oxígeno
+experiencia
+energía
+historial
+
+RF14
+Al finalizar
+Mostrar:
+éxito o fracaso
+recursos restantes
+experiencia obtenida
+
+RF15
+Mostrar estadísticas generales.
+
+Requerimientos No Funcionales
+El sistema deberá:
+ser responsive
+utilizar Tailwind
+tener interfaz moderna
+no recargar la página
+organizar correctamente el código
+
+Reglas de Negocio
+RN01
+Un astronauta solo puede participar en una misión a la vez.
+
+RN02
+No puede iniciar una misión sin suficientes recursos.
+
+RN03
+Una misión consume combustible.
+
+RN04
+Una misión consume oxígeno.
+
+RN05
+Después de cada misión
+La energía disminuye.
+
+RN06
+Si la energía llega a cero
+El astronauta queda
+"No Disponible".
+
+RN07
+Cada misión exitosa aumenta la experiencia.
+
+RN08
+La experiencia máxima es 100.
+
+RN09
+No se pueden repetir nombres de astronautas.
+
+RN10
+Los recursos nunca pueden ser negativos.
+
+Casos de Uso
+CU01
+Registrar astronauta
+Actor
+Comandante
+Flujo
+
+Presiona Agregar.
+
+Completa formulario.
+
+Guardar.
+
+CU02
+Seleccionar misión
+Actor
+Comandante
+Flujo
+
+Selecciona misión.
+
+Selecciona astronautas.
+
+Validar.
+
+Iniciar.
+
+CU03
+Consultar estadísticas
+Actor
+Comandante
+Flujo
+
+Abre panel.
+
+Visualiza información.
+
+Wireframe
+Pantalla Principal
+
+----------------------------------------------------------
+
+OPERACIÓN NOVA HORIZON
+
+----------------------------------------------------------
+
+Recursos
+
+Oxígeno
+
+Combustible
+
+Comida
+
+Energía
+
+----------------------------------------------------------
+
+Astronautas
+
+[Card]
+
+[Card]
+
+[Card]
+
+[Card]
+
+----------------------------------------------------------
+
+Misiones
+
+Explorar Atlas
+
+Investigar Caverna
+
+Extraer Cristales
+
+----------------------------------------------------------
+
+Historial
+
+----------------------------------------------------------
+
+
+Wireframe de Tarjeta
+
++--------------------------+
+
+👨‍🚀 Emma Carter
+
+Ingeniero
+
+Experiencia
+
+██████
+
+Energía
+
+██████
+
+Estado
+
+Disponible
+
+[Editar]
+
+[Eliminar]
+
++--------------------------+
+
+
+Funciones Obligatorias
+Debe existir una función equivalente para:
+
+iniciarSistema()
+
+mostrarAstronautas()
+
+crearAstronauta()
+
+editarAstronauta()
+
+eliminarAstronauta()
+
+mostrarMisiones()
+
+seleccionarMision()
+
+validarMision()
+
+iniciarMision()
+
+actualizarRecursos()
+
+mostrarHistorial()
+
+calcularEstadisticas()
+
+reiniciarSistema()
+
+
+Métodos de Arreglos Obligatorios
+Todos deberán aparecer al menos una vez.
+push()
+pop()
+shift()
+unshift()
+slice()
+splice()
+concat()
+join()
+includes()
+indexOf()
+map()
+filter()
+reduce()
+some()
+every()
+
+Manipulación del DOM
+Obligatorio utilizar
+createElement()
+appendChild()
+insertBefore()
+remove()
+getAttribute()
+setAttribute()
+removeAttribute()
+textContent
+innerHTML
+classList.add()
+classList.remove()
+classList.toggle()
+classList.contains()
+
+Eventos
+Como mínimo
+click
+submit
+mouseover
+mouseout
+keydown
+Además deberán demostrar:
+preventDefault()
+stopPropagation()
+Delegación de eventos
+Bubbling
+
+Restricciones Técnicas
+No se aceptarán proyectos que:
+tengan todo el código en un único archivo JavaScript
+utilicen variables globales innecesarias
+repitan lógica entre funciones
+utilicen alert() como interfaz principal
+recarguen la página para actualizar datos
+usen librerías o frameworks no autorizados
+Se recomienda una estructura similar a:
+
+/
+│── index.html
+│
+├── css/
+│     styles.css
+│
+├── js/
+│     app.js
+│     astronautas.js
+│     misiones.js
+│     recursos.js
+│     ui.js
+│
+├── assets/
+│     img/
+│     icons/
+
+
+Funcionalidades Bonus (+2 puntos)
+Implementar una o más de las siguientes características:
+Simulación de eventos aleatorios durante las misiones (tormentas solares, fallos mecánicos, descubrimientos inesperados).
+Sistema de niveles para los astronautas según su experiencia.
+Barra de progreso animada durante la ejecución de la misión.
+Modo oscuro/claro.
+Panel de filtros por especialidad, estado o experiencia.
+Ranking de los astronautas más experimentados.
+Indicadores visuales con colores según el estado de energía y salud.
+Animaciones suaves en tarjetas y paneles utilizando Tailwind CSS.
+Nota: El puntaje máximo continúa siendo 20 puntos. Las funcionalidades bonus podrán compensar pequeñas deficiencias o servir como criterio de desempate entre proyectos.
+
+Entregables
+Cada equipo deberá entregar:
+Código fuente organizado en carpetas.
+README.md con descripción del proyecto, instrucciones de ejecución y distribución del trabajo del equipo.
+Presentación de máximo 10 minutos.
+Diagrama simple de los objetos principales utilizados en la aplicación.
+Repositorio en GitHub (si el docente lo solicita).
+
+Rúbrica de Evaluación (20 puntos)
+
