@@ -1,9 +1,58 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-  </head>
-  <body></body>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Astronautas</title>
+</head>
+
+  <body class="bg-[#0b111e] min-h-screen text-slate-300 antialiased font-primary">
+
+  <h1 class="text-4xl font-black text-center text-cyan-400 py-6 tracking-widest uppercase">
+    🚀 Sistema de Control: Astronautas
+  </h1>
+
+  <div id="selected-astronaut-container" class="max-w-7xl mx-auto px-6 mb-8">
+    </div>
+
+  <div class="max-w-7xl mx-auto px-6 mb-6 flex flex-col sm:flex-row justify-between items-center gap-4 bg-slate-950/40 p-4 rounded-xl border border-slate-900">
+    <div class="flex flex-wrap items-center gap-3 w-full sm:w-auto">
+      <h2 class="text-xs font-bold tracking-widest text-slate-400 mr-2 uppercase">Astronautas</h2>
+      
+      <div class="relative w-full sm:w-64">
+        <input 
+          type="text" 
+          id="search-astronauta" 
+          placeholder="BUSCAR ASTRONAUTA..." 
+          class="w-full bg-slate-950 border border-slate-800 text-white rounded-lg px-4 py-2 text-xs focus:outline-none focus:border-cyan-500 tracking-wider placeholder:text-slate-600 uppercase"
+        />
+      </div>
+
+      <select 
+        id="filter-especialidad" 
+        class="bg-slate-950 border border-slate-800 text-slate-400 rounded-lg px-4 py-2 text-xs focus:outline-none focus:border-cyan-500 tracking-wider uppercase cursor-pointer w-full sm:w-auto"
+      >
+        <option value="">TODOS</option>
+        <option value="Piloto">PILOTO</option>
+        <option value="Medico">MEDICO</option>
+        <option value="Ingeniero">INGENIERO</option>
+        <option value="Cientifico">CIENTIFICO</option>
+
+      </select>
+
+    </div>
+
+    <button id="btn-agregar-astronauta" class="w-full sm:w-auto bg-cyan-500 text-slate-950 font-bold text-xs px-5 py-2.5 rounded-lg flex items-center justify-center gap-2 hover:bg-cyan-400 hover:shadow-[0_0_15px_rgba(6,182,212,0.4)] transition-all cursor-pointer tracking-wider shrink-0 uppercase">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-4 h-4">
+        <path d="M10.75 4.75a.75.75 0 0 0-1.5 0v4.5h-4.5a.75.75 0 0 0 0 1.5h4.5v4.5a.75.75 0 0 0 1.5 0v-4.5h4.5a.75.75 0 0 0 0-1.5h-4.5v-4.5Z" />
+      </svg>
+     Agregar Astronauta
+    </button>
+  </div>
+
+  <div id="astronautas-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 justify-items-center justify-center max-w-7xl mx-auto p-6">
+    </div>
+  <script type="module" src="./src/page/astronautas/astronautas.js"></script>
+
+</body>
 </html>
