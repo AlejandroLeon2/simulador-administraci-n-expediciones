@@ -16,9 +16,12 @@ import { renderCardMision } from '../../componentes/cardMision.js';
 import { misiones } from '../../data/misiones.js';
 
 
+
 function mostrarMisiones() {
-    // TODO: Implementar lógica aquí
+   return misiones.sort((a, b)=> a.dificultad - b.dificultad)
 }
+
+console.log(mostrarMisiones());
 
 
 // Paso 2.4: Implementar renderizarMisiones()

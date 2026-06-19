@@ -11,10 +11,23 @@
   font-weight: normal;
   font-style: normal;
 }
+@font-face {
+  font-family: "Exo2";
+  src: url("../../fonts/Exo2-VariableFont_wght.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Exo2 Italic";
+  src: url("../../fonts/Exo2-Italic-VariableFont_wght.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
 
 :root {
   --font-primary: "Kenney Future", sans-serif;
-  --font-secondary: "Kenney Future Narrow", sans-serif;
+  --font-secondary: "Exo2", sans-serif;
+  --primary-text: #414141;
 }
 
 * {
@@ -24,5 +37,12 @@
 }
 
 body {
+  font-family: var(--font-secondary);
+}
+.primary-text{
+  color: var(--primary-text);
+}
+.font-primary {
   font-family: var(--font-primary);
 }
+
