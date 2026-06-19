@@ -8,7 +8,7 @@
 
   <body class="bg-[#0b111e] min-h-screen text-slate-300 antialiased font-primary">
 
-  <h1 class="text-4xl font-black text-center text-cyan-400 py-6 tracking-widest uppercase">
+  <h1 class="titulo text-4xl font-black text-center text-cyan-400 py-6 tracking-widest uppercase">
     🚀 Sistema de Control: Astronautas
   </h1>
 
@@ -52,6 +52,143 @@
 
   <div id="astronautas-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 justify-items-center justify-center max-w-7xl mx-auto p-6">
     </div>
+
+  
+  <!-- MODAL ASTRONAUTA -->
+<div id="modal-astronauta" class="fixed inset-0 bg-black/70 flex items-center justify-center hidden z-50 p-4">
+    
+    <div class="bg-slate-950 border border-cyan-800 rounded-xl p-6 w-full max-w-md max-h-[90vh] overflow-y-auto shadow-[0_0_25px_rgba(34,211,238,0.15)]">
+        
+        <h2 class="text-xl font-bold text-cyan-400 mb-4 tracking-wider uppercase">
+            Astronauta
+        </h2>
+
+        <form id="form-astronauta" class="space-y-4 text-sm">
+
+            <div>
+                <label class="block text-xs font-bold text-slate-400 mb-1 uppercase">Nombre</label>
+                <input
+                    id="modal-nombre"
+                    type="text"
+                    class="w-full px-3 py-2 rounded bg-slate-900 border border-slate-800 text-white focus:outline-none focus:border-cyan-500"
+                    required
+                >
+            </div>
+
+            <div>
+                <label class="block text-xs font-bold text-slate-400 mb-1 uppercase">Especialidad</label>
+                <select
+                    id="modal-especialidad"
+                    class="w-full p-2 rounded bg-slate-900 border border-slate-800 text-slate-300 focus:outline-none focus:border-cyan-500 cursor-pointer"
+                >
+                    <option value="Piloto">Piloto</option>
+                    <option value="Ingeniero">Ingeniero</option>
+                    <option value="Científico">Científico</option>
+                    <option value="Médico">Médico</option>
+                </select>
+            </div>
+
+            <div class="grid grid-cols-2 gap-3">
+                <div>
+                    <label class="block text-xs font-bold text-slate-400 mb-1 uppercase">Experiencia</label>
+                    <input
+                        id="modal-experiencia"
+                        type="number"
+                        min="0"
+                        max="100"
+                        class="w-full p-2 rounded bg-slate-900 border border-slate-800 text-white focus:outline-none focus:border-cyan-500"
+                        required
+                    >
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold text-slate-400 mb-1 uppercase">Energía</label>
+                    <input
+                        id="modal-energia"
+                        type="number"
+                        min="0"
+                        max="100"
+                        class="w-full p-2 rounded bg-slate-900 border border-slate-800 text-white focus:outline-none focus:border-cyan-500"
+                        value="100"
+                    >
+                </div>
+            </div>
+
+            <div class="grid grid-cols-2 gap-3">
+                <div>
+                    <label class="block text-xs font-bold text-slate-400 mb-1 uppercase">Salud</label>
+                    <input
+                        id="modal-salud"
+                        type="number"
+                        min="0"
+                        max="100"
+                        class="w-full p-2 rounded bg-slate-900 border border-slate-800 text-white focus:outline-none focus:border-cyan-500"
+                        value="100"
+                    >
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold text-slate-400 mb-1 uppercase">Estado</label>
+                    <select
+                        id="modal-estado"
+                        class="w-full p-2 rounded bg-slate-900 border border-slate-800 text-slate-300 focus:outline-none focus:border-cyan-500 cursor-pointer"
+                    >
+                        <option value="Disponible">Disponible</option>
+                        <option value="En misión">En misión</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <label class="block text-xs font-bold text-slate-400 mb-1 uppercase">Expediciones</label>
+                <input
+                    id="modal-expediciones"
+                    type="number"
+                    min="0"
+                    class="w-full p-2 rounded bg-slate-900 border border-slate-800 text-white focus:outline-none focus:border-cyan-500"
+                    value="0"
+                >
+            </div>
+
+            <div>
+                <label class="block text-xs font-bold text-slate-400 mb-1 uppercase">Imagen URL</label>
+                <input
+                    id="modal-imagen"
+                    type="text"
+                    class="w-full p-2 rounded bg-slate-900 border border-slate-800 text-white focus:outline-none focus:border-cyan-500"
+                >
+            </div>
+
+            <div>
+                <label class="block text-xs font-bold text-slate-400 mb-1 uppercase">Descripción</label>
+                <textarea
+                    id="modal-descripcion"
+                    rows="3"
+                    class="w-full p-2 rounded bg-slate-900 border border-slate-800 text-white focus:outline-none focus:border-cyan-500"
+                ></textarea>
+            </div>
+
+            <div class="flex gap-3 pt-4">
+                <button
+                    type="button"
+                    id="btn-cerrar-modal"
+                    class="flex-1 bg-slate-900 hover:bg-slate-800 border border-slate-800 text-slate-400 font-bold py-2 rounded transition-all cursor-pointer text-xs tracking-wider uppercase"
+                >
+                    Cancelar
+                </button>
+                <button
+                    type="submit"
+                    id="btn-guardar-astronauta"
+                    class="flex-1 bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold py-2 rounded shadow-[0_0_15px_rgba(6,182,212,0.3)] transition-all cursor-pointer text-xs tracking-wider uppercase"
+                >
+                    Guardar
+                </button>
+            </div>
+
+        </form>
+    </div> 
+  </div>
+
   <script type="module" src="./src/page/astronautas/astronautas.js"></script>
 
 </body>

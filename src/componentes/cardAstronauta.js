@@ -48,9 +48,8 @@ export function renderCardAstronauta(astronauta) {
         "text-slate-300",
         "rounded-xl",
         "p-4",               
-        "border-2",
+        "border-4",
         "border-double",
-        "border-6", 
         "border-cyan-800",
         "shadow-md",
         "shadow-cyan-400",
@@ -104,13 +103,13 @@ export function renderCardAstronauta(astronauta) {
     img.src = astronauta.imagen;
     img.alt = astronauta.nombre;
     img.classList.add(
-        "w-25",              
-        "h-30",              
+        "w-24",
+        "h-32",
         "rounded-lg",
         "object-cover",
         "border",
         "border-slate-700",
-        "shrink-0"           
+        "shrink-0"          
     );
 
     // --- TEXTOS ---
@@ -119,7 +118,15 @@ export function renderCardAstronauta(astronauta) {
 
     const h3 = document.createElement("h3");
     h3.textContent = astronauta.nombre;
-    h3.classList.add("text-md", "font-bold", "text-white", "break-words", "uppercase", "tracking-wide", "leading-tight"); 
+    h3.classList.add(
+    "text-base",
+    "font-bold",
+    "text-white",
+    "break-words",
+    "uppercase",
+    "tracking-wide",
+    "leading-tight"
+); 
 
     // 1. Convertimos el texto de la especialidad a mayúsculas limpias
     const specialty = (astronauta.especialidad || astronauta.specialidad || "").toUpperCase().trim();
@@ -151,7 +158,12 @@ export function renderCardAstronauta(astronauta) {
 
 // --- SECCIÓN DE ESTADÍSTICAS ---
     const statsContainer = document.createElement("div");
-    statsContainer.classList.add("flex", "flex-col", "gap-2.5", "text-md");
+    statsContainer.classList.add(
+        "flex",
+        "flex-col",
+        "gap-2.5",
+        "text-sm"
+    );
 
     const expRow = document.createElement("div");
     expRow.classList.add("flex", "justify-between", "items-center", "mb-1");
@@ -162,7 +174,7 @@ export function renderCardAstronauta(astronauta) {
         container.classList.add("flex", "flex-col", "gap-1");
 
         const labelRow = document.createElement("div");
-        labelRow.classList.add("flex", "justify-between", "items-center", "text-sx", "text-slate-400", "tracking-wider");
+        labelRow.classList.add("flex", "justify-between", "items-center", "text-xs", "text-slate-400", "tracking-wider");
         labelRow.innerHTML = `<span>${icono} ${etiqueta.toUpperCase()}</span><span class="font-bold text-white">${valor}</span>`;
 
         const barBg = document.createElement("div");
@@ -211,6 +223,8 @@ export function renderCardAstronauta(astronauta) {
         "bg-cyan-950/20", "rounded-md", "hover:bg-cyan-500", "hover:text-slate-950",
         "hover:border-cyan-500", "transition-all", "cursor-pointer", "tracking-wider"
     );
+    
+    btnModificar.classList.add("btn-modificar");
 
     const btnEliminar = document.createElement("button");
     btnEliminar.textContent = "ELIMINAR";
@@ -220,6 +234,8 @@ export function renderCardAstronauta(astronauta) {
         "hover:border-rose-600", "transition-all", "cursor-pointer", "tracking-wider"
     );
 
+    btnEliminar.classList.add("btn-eliminar");
+
     accionesContainer.append(btnModificar, btnEliminar);
     footerContainer.append(hr, footerGrid, accionesContainer);
 
@@ -228,5 +244,4 @@ export function renderCardAstronauta(astronauta) {
 
     return div;
 }
-
 

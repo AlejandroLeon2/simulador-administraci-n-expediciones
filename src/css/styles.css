@@ -24,3 +24,10 @@
 body {
   font-family: var(--font-primary);
 }
+
+
+/* Se puede utilizar para alertas*/
+@keyframes brillo { 
+  0% { text-shadow: 0 0 5px #383434; }
+  100% { text-shadow: 0 0 20px rgb(249, 253, 5); }
+}
