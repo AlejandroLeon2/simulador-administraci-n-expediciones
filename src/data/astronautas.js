@@ -8,7 +8,8 @@ export const astronautas = [
     "salud": 100,
     "estado": "Disponible",
     "expediciones": 0,
-    "imagen": "../assets/astronauta.jpeg"
+    "imagen": "https://photoaid.com/images/before-after/after/default.png",
+    "descripcion": "Especialista en sistemas de soporte vital y mantenimiento de estaciones espaciales."
   },
   {
     "id": 2,
@@ -19,7 +20,8 @@ export const astronautas = [
     "salud": 100,
     "estado": "Disponible",
     "expediciones": 0,
-    "imagen": "../assets/astronauta.jpeg"
+    "imagen": "https://t4.ftcdn.net/jpg/00/85/77/75/360_F_85777561_m6EMdjM6Knkz7OLJmN5zr5ZeK359S3G5.jpg",
+    "descripcion": "Médico con experiencia en emergencias espaciales y monitoreo de la salud de la tripulación."
   },
   {
     "id": 3,
@@ -30,7 +32,8 @@ export const astronautas = [
     "salud": 100,
     "estado": "Disponible",
     "expediciones": 0,
-    "imagen": "../assets/astronauta.jpeg"
+    "imagen": "https://www.shutterstock.com/image-photo/asian-woman-fair-skin-calm-260nw-2505143007.jpg",
+    "descripcion": "Piloto hábil en maniobras orbitales y aterrizajes de precisión en terrenos desconocidos."
   },
   {
     "id": 4,
@@ -41,7 +44,8 @@ export const astronautas = [
     "salud": 100,
     "estado": "Disponible",
     "expediciones": 0,
-    "imagen": "../assets/astronauta.jpeg"
+    "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS2rVVXszyfE2UZfFA7En7YVxF5MjjLsEf93g&s",
+    "descripcion": "Ingeniero veterano experto en reparación de naves y optimización de recursos."
   },
   {
     "id": 5,
@@ -52,7 +56,8 @@ export const astronautas = [
     "salud": 100,
     "estado": "Disponible",
     "expediciones": 0,
-    "imagen": "../assets/astronauta.jpeg"
+    "imagen": "https://t3.ftcdn.net/jpg/01/57/67/88/360_F_157678844_8bbNSQ5ZiGxFWhCEpLr0mAqm55E5onmm.jpg",
+    "descripcion": "Científica dedicada al análisis de muestras geológicas y búsqueda de vida extraterrestre."
   },
   {
     "id": 6,
@@ -63,7 +68,8 @@ export const astronautas = [
     "salud": 100,
     "estado": "Disponible",
     "expediciones": 0,
-    "imagen": "../assets/astronauta.jpeg"
+    "imagen": "https://www.shutterstock.com/image-photo/japanese-man-smiling-on-white-600nw-2688676199.jpg",
+    "descripcion": "Médico especializado en medicina espacial y adaptación humana a entornos extremos."
   },
   {
     "id": 7,
@@ -74,7 +80,8 @@ export const astronautas = [
     "salud": 100,
     "estado": "Disponible",
     "expediciones": 0,
-    "imagen": "../assets/astronauta.jpeg"
+    "imagen": "https://img.magnific.com/foto-gratis/negocios-finanzas-empleo-concepto-mujeres-emprendedoras-exitosas-gerente-oficina-mujer-profesional-sonriente-ceo-empresa-comercio-electronico-mirando-camara-complacida-fondo-blanco_1258-59171.jpg?semt=ais_hybrid&w=740&q=80",
+    "descripcion": "Piloto experimentada en vuelos de larga duración y coordinación de misiones complejas."
   },
   {
     "id": 8,
@@ -85,7 +92,8 @@ export const astronautas = [
     "salud": 100,
     "estado": "Disponible",
     "expediciones": 0,
-    "imagen": "../assets/astronauta.jpeg"
+    "imagen": "https://thumbs.dreamstime.com/b/hombre-hermoso-serio-en-lentes-113011821.jpg",
+    "descripcion": "Ingeniero enfocado en sistemas energéticos y tecnología de exploración planetaria."
   },
   {
     "id": 9,
@@ -96,7 +104,8 @@ export const astronautas = [
     "salud": 100,
     "estado": "Disponible",
     "expediciones": 0,
-    "imagen": "../assets/astronauta.jpeg"
+    "imagen": "https://thumbs.dreamstime.com/b/retrato-de-los-vidrios-que-llevan-de-la-mujer-de-negocios-39628203.jpg",
+    "descripcion": "Científica reconocida por sus investigaciones sobre atmósferas y ecosistemas alienígenas."
   },
   {
     "id": 10,
@@ -107,7 +116,8 @@ export const astronautas = [
     "salud": 100,
     "estado": "Disponible",
     "expediciones": 0,
-    "imagen": "../assets/astronauta.jpeg"
+    "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUe1WesSYnyINopeWGX_hJOgHbnCxEBgjm8g&s",
+    "descripcion": "Médico jefe con amplia trayectoria en expediciones de alto riesgo y rescates."
   },
   {
     "id": 11,
@@ -118,7 +128,8 @@ export const astronautas = [
     "salud": 100,
     "estado": "Disponible",
     "expediciones": 0,
-    "imagen": "../assets/astronauta.jpeg"
+    "imagen": "https://i.pinimg.com/736x/59/c6/35/59c6350f13598b8729a2fb1539d8e180.jpg",
+    "descripcion": "Piloto en constante entrenamiento, destacada por su rapidez de reacción y precisión."
   },
   {
     "id": 12,
@@ -129,7 +140,8 @@ export const astronautas = [
     "salud": 100,
     "estado": "Disponible",
     "expediciones": 0,
-    "imagen": "../assets/astronauta.jpeg"
+    "imagen": "https://media.istockphoto.com/id/1335941248/es/foto/foto-de-un-joven-guapo-de-pie-sobre-un-fondo-gris.jpg?s=612x612&w=0&k=20&c=UK8BGVVCSmHen0sJAgxoZ6sBLrs0ld4TuCwczZZ89AY=",
+    "descripcion": "Ingeniero experto en robótica, automatización y construcción de bases espaciales."
   },
   {
     "id": 13,
@@ -140,7 +152,8 @@ export const astronautas = [
     "salud": 100,
     "estado": "Disponible",
     "expediciones": 0,
-    "imagen": "../assets/astronauta.jpeg"
+    "imagen": "https://media.istockphoto.com/id/1425797951/es/foto/retrato-de-una-mujer-hermosa-y-sonriente.jpg?s=612x612&w=0&k=20&c=mANrf5oB3_YVoYo7w89cduobX4xGriV7NqXDgqAcGQc=",
+    "descripcion": "Científica apasionada por la exploración de minerales y recursos en nuevos mundos."
   },
   {
     "id": 14,
@@ -151,7 +164,8 @@ export const astronautas = [
     "salud": 100,
     "estado": "Disponible",
     "expediciones": 0,
-    "imagen": "../assets/astronauta.jpeg"
+    "imagen": "https://media.istockphoto.com/id/506116452/es/foto/horizontal-retrato-de-un-hombre-serio-con-barba.jpg?s=612x612&w=0&k=20&c=wAov5NJhicUoxbuYMOVxMWhKVz_OSLKNPtb4f9ZULes=",
+    "descripcion": "Médico de campo con experiencia en supervivencia y atención médica en entornos hostiles."
   },
   {
     "id": 15,
@@ -162,7 +176,8 @@ export const astronautas = [
     "salud": 100,
     "estado": "Disponible",
     "expediciones": 0,
-    "imagen": "../assets/astronauta.jpeg"
+    "imagen": "https://t4.ftcdn.net/jpg/00/84/06/29/360_F_84062994_5AxDSM44TAfFfRWFcdjAhRvfzdmQUNFP.jpg",
+    "descripcion": "Piloto de élite especializada en navegación interestelar y operaciones de rescate."
   },
   {
     "id": 16,
@@ -173,7 +188,8 @@ export const astronautas = [
     "salud": 100,
     "estado": "Disponible",
     "expediciones": 0,
-    "imagen": "../assets/astronauta.jpeg"
+    "imagen": "https://img.magnific.com/foto-gratis/hombre-mediana-edad-chaqueta-riendo-feliz_150588-72.jpg",
+    "descripcion": "Ingeniero versátil capaz de solucionar fallos críticos bajo presión extrema."
   },
   {
     "id": 17,
@@ -184,7 +200,8 @@ export const astronautas = [
     "salud": 100,
     "estado": "Disponible",
     "expediciones": 0,
-    "imagen": "../assets/astronauta.jpeg"
+    "imagen": "https://media.istockphoto.com/id/1413764595/es/foto/exitosa-mujer-de-negocios-madura-mirando-a-la-c%C3%A1mara.jpg?s=612x612&w=0&k=20&c=MVhAhPYY7zGWHBrwZfqxVxmVtLJIrPJxqKIi1bbaZc4=",
+    "descripcion": "Científica líder en investigaciones biológicas y análisis de organismos desconocidos."
   },
   {
     "id": 18,
@@ -195,7 +212,8 @@ export const astronautas = [
     "salud": 100,
     "estado": "Disponible",
     "expediciones": 0,
-    "imagen": "../assets/astronauta.jpeg"
+    "imagen": "https://www.shutterstock.com/image-photo/happy-confident-handsome-fit-sporty-260nw-2415320939.jpg",
+    "descripcion": "Médico experimentado en mantener la salud y moral de la tripulación durante largas misiones."
   },
   {
     "id": 19,
@@ -206,7 +224,8 @@ export const astronautas = [
     "salud": 100,
     "estado": "Disponible",
     "expediciones": 0,
-    "imagen": "../assets/astronauta.jpeg"
+    "imagen": "https://www.shutterstock.com/image-photo/happy-middle-aged-business-woman-260nw-2598372723.jpg",
+    "descripcion": "Piloto legendaria con récord de expediciones exitosas en sectores inexplorados."
   },
   {
     "id": 20,
@@ -217,6 +236,7 @@ export const astronautas = [
     "salud": 100,
     "estado": "Disponible",
     "expediciones": 0,
-    "imagen": "../assets/astronauta.jpeg"
+    "imagen": "https://st3.depositphotos.com/9881890/15494/i/450/depositphotos_154945740-stock-photo-happy-caucasian-man.jpg",
+    "descripcion": "Ingeniero prometedor especializado en comunicaciones y tecnología de exploración."
   }
 ];
