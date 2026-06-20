@@ -216,9 +216,9 @@
 
 ### Paso 4.1: Preparación de Datos
 
-- [ ] Convertir `src/data/recursos.json` a `src/data/recursos.js`
-- [ ] Exportar los datos como: `export const recursos = { ... }`
-- [ ] Verificar que tenga oxigeno, combustible, comida, energia
+- [+] Convertir `src/data/recursos.json` a `src/data/recursos.js`
+- [+] Exportar los datos como: `export const recursos = { ... }`
+- [+] Verificar que tenga oxigeno, combustible, comida, energia
 
 ### Paso 4.2: Implementar mostrarRecursos()
 
@@ -227,9 +227,9 @@
 
 **Sub-tareas:**
 
-1. Importar los datos: `import { recursos } from '../../data/recursos.js'`
-2. Crear la función `mostrarRecursos()`
-3. Retornar el objeto recursos
+1. [+] Importar los datos: `import { recursos } from '../../data/recursos.js'`
+2. [+] Crear la función `mostrarRecursos()`
+3. [+] Retornar el objeto recursos
 
 ### Paso 4.3: Implementar renderCardRecursos(recursos)
 
@@ -238,13 +238,13 @@
 
 **Sub-tareas:**
 
-1. Crear elemento contenedor: `const div = document.createElement('div')`
-2. Agregar clase CSS: `div.classList.add('card', 'recursos-panel')`
-3. Crear título: "Recursos Disponibles"
-4. Crear elementos para cada recurso con su valor
-5. Usar barras de progreso visuales para cada recurso
-6. Usar `appendChild()` para agregar elementos
-7. Retornar el div
+1. [+] Crear elemento contenedor: `const div = document.createElement('div')`
+2. [+] Agregar clase CSS: `div.classList.add('card', 'recursos-panel')`
+3. [+] Crear título: "Recursos Disponibles"
+4. [+] Crear elementos para cada recurso con su valor
+5. [+] Usar barras de progreso visuales para cada recurso
+6. [+] Usar `appendChild()` para agregar elementos
+7. [+] Retornar el div
 
 **Métodos DOM a usar:**
 
@@ -258,8 +258,8 @@
 
 **Sub-tareas:**
 
-1. Llamar a `mostrarRecursos()` para obtener datos
-2. Obtener el contenedor: `const container = document.getElementById('recursos-container')`
-3. Llamar a `renderCardRecursos()` con los datos
-4. Agregar la card al contenedor
-5. Llamar a la función al final del archivo.
+1. [+] Llamar a `mostrarRecursos()` para obtener datos
+2. [+] Obtener el contenedor: `const container = document.getElementById('recursos-container')`
+3. [+] Llamar a `renderCardRecursos()` con los datos
+4. [+] Agregar la card al contenedor
+5. [+] Llamar a la función al final del archivo.

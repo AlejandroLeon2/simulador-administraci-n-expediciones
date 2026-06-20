@@ -16,6 +16,22 @@
 //
 // Métodos DOM a usar: createElement(), classList.add(), setAttribute(), textContent, appendChild()
 
-export function renderCardRecursos(recursos) {
-    // TODO: Implementar lógica aquí
+import { mostrarRecursos as DatosRecursos } from '../page/recursos/recursos.js';
+
+console.log(DatosRecursos());
+
+export function renderCardRecursos(DatosRecursos) {
+    const div = document.createElement('div');
+    div.classList.add('card', 'recursos-panel');
+
+    const h3 = document.createElement('h3');
+    h3.textContent = 'Recursos Disponibles';
+    div.appendChild(h3);
+
+    for (const recurso in DatosRecursos) {
+        const p = document.createElement('p');
+        p.textContent = `${recurso}: ${DatosRecursos[recurso]}`;
+        div.appendChild(p);
+    }
+    return div;
 }

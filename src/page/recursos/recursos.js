@@ -2,6 +2,9 @@
 // MÓDULO 4: RECURSOS - Daniel
 // ============================================================================
 
+import { recursos as PropRecursos } from '../../data/recursos.js';
+import { renderCardRecursos } from '../../componentes/cardRecursos.js';
+
 // Paso 4.2: Implementar mostrarRecursos()
 // Recibe: No recibe parámetros
 // Retorna: Objeto recursos con propiedades: oxigeno, combustible, comida, energia
@@ -10,14 +13,10 @@
 // 2. Crear la función mostrarRecursos()
 // 3. Retornar el objeto recursos
 
-import { renderCardRecursos } from '../../componentes/cardRecursos.js';
-import { recursos } from '../../data/recursos.js';
-
-
-function mostrarRecursos() {
-    // TODO: Implementar lógica aquí
+export function mostrarRecursos() {
+    let recursos = { ...PropRecursos };
+    return recursos;
 }
-
 
 // Paso 4.4: Implementar renderizarRecursos()
 // Sub-tareas:
@@ -28,9 +27,9 @@ function mostrarRecursos() {
 // 5. Llamar a la función al final del archivo
 
 function renderizarRecursos() {
-    // TODO: Implementar lógica aquí
+    const recursos = mostrarRecursos();
+    const container = document.getElementById('recursos-container');
+    container.appendChild(renderCardRecursos(recursos));
 }
 
-
-// Ejecutar la función para renderizar recursos
-// renderizarRecursos();
+renderizarRecursos();
