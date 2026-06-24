@@ -1,3 +1,9 @@
+export function paginaRecursos() {
+  return `<h1 class="text-white text-xl font-bold">📦 PANEL DE RECURSOS</h1>`;
+}
+//prueba
+
+
 // ============================================================================
 // MÓDULO 4: RECURSOS - Daniel
 // ============================================================================
