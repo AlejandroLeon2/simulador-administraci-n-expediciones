@@ -1,6 +1,5 @@
 @import "tailwindcss";
 
-
 @font-face {
   font-family: "Kenney Future";
   src: url("../../fonts/Kenney Future.ttf") format("truetype");
@@ -15,58 +14,74 @@
   font-style: normal;
 }
 
-:root {
-  --font-primary: "Kenney Future", sans-serif;
-  --font-secondary: "Kenney Future Narrow", sans-serif;
+@font-face {
+  font-family: "Exo2";
+  src: url("../../fonts/Exo2-VariableFont_wght.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Exo2 Italic";
+  src: url("../../fonts/Exo2-Italic-VariableFont_wght.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
 }
 
-.fuente {
-  font-family: Arial, Helvetica, 'sans-serif';
+@theme{
+  --font-primary: "Kenney Future", sans-serif;
+  --font-secondary: "Exo2", sans-serif;
 }
+
 
 body {
   font-family: var(--font-primary);
 }
 
-
 /* Se puede utilizar para alertas*/
-@keyframes brillo { 
-  0% { text-shadow: 0 0 5px #383434; }
-  100% { text-shadow: 0 0 20px rgb(249, 253, 5); }
+@keyframes brillo {
+  0% {
+    text-shadow: 0 0 5px #383434;
+  }
+  100% {
+    text-shadow: 0 0 20px rgb(249, 253, 5);
+  }
 }
 
 .fondo-astronautas {
-  background-image: url('../assets/espacio3.avif');
+  background-image: url("../assets/espacio3.avif");
   background-repeat: no-repeat;
   background-position: center;
   /* Hace que la imagen cubra toda la pantalla sin deformarse */
   background-size: cover;
-  
+
   /* Mantiene el fondo fijo cuando haces scroll hacia abajo */
   background-attachment: fixed;
 }
 
-
 /* Estilo de activación holográfica con gradiente de derecha a izquierda */
 .item-menu-activo {
-    background-color: rgba(6, 182, 212, 0.1) !important; /* bg-cyan-950/20 */
-    color: #ffffff !important;                             /* text-white */
-    border-left: 4px solid #06b6d4 !important;             /* Borde cian izquierdo */
-    font-weight: 700 !important;                           /* font-bold */
-    position: relative;                                    /* Necesario para posicionar el gradiente */
-    overflow: hidden;
+  background-color: rgba(6, 182, 212, 0.1) !important; /* bg-cyan-950/20 */
+  color: #ffffff !important; /* text-white */
+  border-left: 4px solid #06b6d4 !important; /* Borde cian izquierdo */
+  font-weight: 700 !important; /* font-bold */
+  position: relative; /* Necesario para posicionar el gradiente */
+  overflow: hidden;
 }
 
 /* El truco: un fondo falso que hace el gradiente de derecha a izquierda */
 .item-menu-activo::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    /* Gradiente: empieza en cian suave a la derecha y se desvanece por completo hacia la izquierda */
-    background: linear-gradient(to left, rgba(6, 182, 212, 0.25), rgba(6, 182, 212, 0)) !important;
-    pointer-events: none; /* Evita que interfiera con los clics del mouse */
-    z-index: 0;
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  /* Gradiente: empieza en cian suave a la derecha y se desvanece por completo hacia la izquierda */
+  background: linear-gradient(
+    to left,
+    rgba(6, 182, 212, 0.25),
+    rgba(6, 182, 212, 0)
+  ) !important;
+  pointer-events: none; /* Evita que interfiera con los clics del mouse */
+  z-index: 0;
 }
