@@ -16,11 +16,12 @@ document.querySelector("#app").innerHTML = `
         class="ml-64 mt-16 min-h-[calc(100vh-4rem)] bg-slate-950 p-8">
         <div class="text-slate-500 flex flex-col items-center justify-center h-96 border border-dashed border-slate-800 rounded-2xl">
             <p class="text-lg font-medium">Bienvenido al Simulador Nova Horizon</p>
-            <p class="text-xs">Selecciona una sección en el menú lateral para comenzar.</p>
+            <p class="text-xs ">Selecciona una sección en el menú lateral para comenzar.</p>
         </div>
     </main>
     ${Footer()}
 `;
+
 
 // 3. CAPTURAR CONTENEDORES Y BOTONES
 const contenedor = document.querySelector("#contenido");
