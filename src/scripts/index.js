@@ -1,6 +1,6 @@
 import "../css/styles.css";
 
-import { Header } from "../componentes/header.js";
+import { Header } from "../componentes/Header.js";
 import Sidebar from '../componentes/Sidebar.js';
 import { Footer } from "../componentes/Footer.js";
 
