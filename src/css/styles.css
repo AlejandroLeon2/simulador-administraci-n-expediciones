@@ -27,7 +27,7 @@
   font-style: normal;
 }
 
-@theme{
+:root{
   --font-primary: "Kenney Future", sans-serif;
   --font-secondary: "Exo2", sans-serif;
 }
