@@ -1,11 +1,14 @@
 import "../css/styles.css";
 
-import { Header } from "../componentes/header.js";
+import { Header } from "../componentes/Header.js";
 import Sidebar from '../componentes/Sidebar.js';
 import { Footer } from "../componentes/Footer.js";
 
-// 1. IMPORTAR MÓDULO DE ASTRONAUTAS
+
+// 1. IMPORTAR MÓDULOS DE PAGINAS
 import { paginaAstronautas, initAstronautas } from "../page/astronautas/astronautas.js";
+import { paginaRecursos, initRecursos } from "../page/recursos/recursos.js";
+
 
 // 2. INYECTAR LA ESTRUCTURA BASE DE LA APLICACIÓN
 document.querySelector("#app").innerHTML = `
@@ -16,11 +19,12 @@ document.querySelector("#app").innerHTML = `
         class="ml-64 mt-16 min-h-[calc(100vh-4rem)] bg-slate-950 p-8">
         <div class="text-slate-500 flex flex-col items-center justify-center h-96 border border-dashed border-slate-800 rounded-2xl">
             <p class="text-lg font-medium">Bienvenido al Simulador Nova Horizon</p>
-            <p class="text-xs">Selecciona una sección en el menú lateral para comenzar.</p>
+            <p class="text-xs ">Selecciona una sección en el menú lateral para comenzar.</p>
         </div>
     </main>
     ${Footer()}
 `;
+
 
 // 3. CAPTURAR CONTENEDORES Y BOTONES
 const contenedor = document.querySelector("#contenido");
@@ -85,4 +89,15 @@ botonesMenu.forEach(boton => {
             contenedor.innerHTML = `<h1 class="text-white text-2xl font-bold p-4">🚀 Módulo de Misiones</h1>`;
         });
     }
+
+    //BOTON RECURSOS
+    if (textoBoton.includes("RECURSOS")) {
+    boton.addEventListener("click", () => {
+        cambiarEnlaceActivo(boton);
+
+        contenedor.innerHTML = paginaRecursos();
+        initRecursos(); // 
+    });
+}
+
 });
