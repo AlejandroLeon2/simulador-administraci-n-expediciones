@@ -4,11 +4,8 @@ import { Header } from "../componentes/Header.js";
 import Sidebar from '../componentes/Sidebar.js';
 import { Footer } from "../componentes/Footer.js";
 
-
-// 1. IMPORTAR MÓDULOS DE PAGINAS
+// 1. IMPORTAR MÓDULO DE ASTRONAUTAS
 import { paginaAstronautas, initAstronautas } from "../page/astronautas/astronautas.js";
-import { paginaRecursos, initRecursos } from "../page/recursos/recursos.js";
-
 
 // 2. INYECTAR LA ESTRUCTURA BASE DE LA APLICACIÓN
 document.querySelector("#app").innerHTML = `
@@ -89,15 +86,4 @@ botonesMenu.forEach(boton => {
             contenedor.innerHTML = `<h1 class="text-white text-2xl font-bold p-4">🚀 Módulo de Misiones</h1>`;
         });
     }
-
-    //BOTON RECURSOS
-    if (textoBoton.includes("RECURSOS")) {
-    boton.addEventListener("click", () => {
-        cambiarEnlaceActivo(boton);
-
-        contenedor.innerHTML = paginaRecursos();
-        initRecursos(); // 
-    });
-}
-
 });

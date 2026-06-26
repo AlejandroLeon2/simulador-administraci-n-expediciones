@@ -23,7 +23,6 @@ const ICONO_DEFECTO =iconUser("w-4 h-4 text-cyan-400 shrink-0");
 
 
 export function renderCardAstronauta(astronauta) {
-
     const div = crearElementoHtml("div", "bg-slate-950/90 text-slate-300 rounded-xl p-4 border-4 border-double border-cyan-800 shadow-md shadow-cyan-400 flex flex-col justify-between w-full max-w-[350px] min-h-[410px] transition-all duration-300 ease-out hover:-translate-y-2 hover:shadow-cyan-400");
     // BLOQUE SUPERIOR (Agrupa Cabecera + Stats)
     const topContainer = crearElementoHtml("div", "flex flex-col gap-5 pt-6 relative w-full");
