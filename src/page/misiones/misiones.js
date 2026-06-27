@@ -12,13 +12,38 @@
 // 4. (Opcional) Ordenar por dificultad o recompensa
 // Métodos de arreglos a usar: sort()
 
-import { renderCardMision } from '../../componentes/cardMision.js';
+import { renderCardMision } from '../../componentes/cards/cardMision.js';
+import { renderCardMisionExtendida } from '../../componentes/sections/infoMision.js';
 import { misiones } from '../../data/misiones.js';
 
+const $mainMisiones = document.getElementById("misiones-container");
 
-function mostrarMisiones() {
-    // TODO: Implementar lógica aquí
-}
+/*  {
+    "id": 1,
+    "nombre": "Explorar Cráter Atlas",
+    "Descriptcion": "Encontrar rocas",
+    "dificultad": 3,
+    "recompensa": 120,
+    "requerimientos": {
+      "combustible": 90,
+      "oxigeno": 70,
+      "astronautas": 4,
+      "comida": 50,
+      "energia": 40
+    },
+    "especialidades": ["Ingeniero", "Médico"]
+  },*/
+
+function procesarMisiones(misiones) {
+
+    const arrayTransformado = misiones.map(element => {
+        const arrayRequerimientos = Object.entries(element.requerimientos);
+        return { ...element, requerimientos: arrayRequerimientos }
+    })
+    return arrayTransformado;
+   
+};
+const misionesProcesadas = procesarMisiones(misiones);
 
 
 // Paso 2.4: Implementar renderizarMisiones()
@@ -30,10 +55,12 @@ function mostrarMisiones() {
 // 5. Agregar cada card al contenedor
 // 6. Llamar a la función al final del archivo
 
-function renderizarMisiones() {
-    // TODO: Implementar lógica aquí
+function renderizarMisiones(misionesProcesadas,element ) {
+    misionesProcesadas.forEach(mision => {
+        element.append(renderCardMision(mision));
+    });
+
 }
+$mainMisiones.append(renderCardMisionExtendida(misionesProcesadas[0]));
 
-
-// Ejecutar la función para renderizar misiones
-// renderizarMisiones();
+//renderizarMisiones(misionesProcesadas, $mainMisiones);

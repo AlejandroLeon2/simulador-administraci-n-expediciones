@@ -21,7 +21,7 @@ export default function Sidebar() {
             <div class="h-20 top-0 px-2 flex items-center gap-3 border-b border-slate-800/60 bg-slate-950 whitespace-normal break-normal">
                 <div class="h-15 w-15 overflow-hidden rounded-full border border-slate-700 bg-slate-950 shrink-0 shadow-[0_0_10px_rgba(255,255,255,0.1)]">
                     <img 
-                        src="/src/assets/logo.png" 
+                        src="../src/assets/logo.png" 
                         alt="Logo Nova Horizon" 
                         class="h-full w-full object-cover"
                     />
