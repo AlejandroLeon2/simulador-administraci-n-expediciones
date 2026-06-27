@@ -1,6 +1,6 @@
 
 import { recursos } from "../../data/recursos.js";
-import CardRecursos from "../../componentes/CardRecursos.js";
+import CardRecursos from "../../componentes/cardRecursos.js";
 
 export function paginaRecursos() {
     return `
