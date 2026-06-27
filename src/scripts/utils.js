@@ -1,3 +1,6 @@
+//ya no usar esta funcion 
+//ahora usar la clase que esta en  src/scripts/elementHtml.js
+
 export function crearElementoHtml(elemento, className, contenido) {
     try {
         if (!elemento) {
