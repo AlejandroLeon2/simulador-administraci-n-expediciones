@@ -27,7 +27,7 @@
   font-style: normal;
 }
 
-@theme{
+:root{
   --font-primary: "Kenney Future", sans-serif;
   --font-secondary: "Exo2", sans-serif;
 }
@@ -84,4 +84,25 @@ body {
   ) !important;
   pointer-events: none; /* Evita que interfiera con los clics del mouse */
   z-index: 0;
+}
+
+.icon-oxigeno { color: #02d9fa; }
+.icon-comida { color: #05e423; }
+.icon-energia { color: #fcf804; }
+.icon-monedas { color: #f50c0c; }
+.icon-combustible { color: #fd6500; }
+
+.icon-box {
+  width: 42px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  background: rgba(255,255,255,0.05);
+}
+
+.cantidad-max {
+    font-family: 'Franklin Gothic Medium', Arial Narrow, Arial, sans-serif;
+    text-transform: uppercase;
 }

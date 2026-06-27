@@ -1,7 +1,40 @@
-export const recursos = {
-  "oxigeno": 500,
-  "combustible": 700,
-  "comida": 450,
-  "energia": 300,
-  "dinero": 1000
-};
+export const recursos = [
+
+  { "nombre": "Oxigeno",  
+    "cantidad": 1000, 
+    "maximo": 1000,
+    "imagen":"../../public/oxigeno.png",
+    "descripcion": "Escencial para la supervivencia de la tripulacion."
+  },
+
+ {  "nombre": "Combustible",  
+    "cantidad": 1000, 
+    "maximo": 1000,
+    "imagen":"../../public/combustible.png",
+    "descripcion": "Necesario para el despegue y las maniobras."
+  },
+  
+  { "nombre": "Energia",  
+    "cantidad": 1000, 
+    "maximo": 1000,
+    "imagen":"../../public/energia.png",
+    "descripcion": "Energia requerida para todos los sistemas y operaciones."
+  },
+
+  { "nombre": "Comida",  
+    "cantidad": 1000, 
+    "maximo": 1000,
+    "imagen":"../../public/comida.png",
+    "descripcion": "Mantiene a la tripulacion alimentada y saludable."
+  },
+
+  
+
+  { "nombre": "Monedas",  
+    "cantidad": 1000, 
+    "maximo": 1000,
+    "imagen":"../../public/monedas.png",
+    "descripcion": "Presupuesto total de la expedición."
+  }
+   
+];

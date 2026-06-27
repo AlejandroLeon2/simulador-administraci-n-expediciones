@@ -35,15 +35,40 @@ export function renderCardAstronauta(astronauta) {
         badgeEstado.classList.add("bg-amber-950/60", "text-amber-400", "border-amber-500/40");
     }
 
-    // --- FILA DE LA CABECERA (Foto + Info) ---
-    const headerContent = crearElementoHtml("div", "flex gap-4 items-center w-full");
+// --- FILA DE LA CABECERA (Foto + Info) ---
+    const headerContent = document.createElement("div");
+    headerContent.classList.add("flex", "gap-4", "items-center", "w-full"); 
+
     // --- FOTO ---
-    const img = crearElementoHtml("img", "w-24 h-32 rounded-lg object-cover border border-slate-700 shrink-0");
+    const img = document.createElement("img");
     img.src = astronauta.imagen;
     img.alt = astronauta.nombre;
+    img.classList.add(
+        "w-24",
+        "h-32",
+        "rounded-lg",
+        "object-cover",
+        "border",
+        "border-slate-700",
+        "shrink-0"          
+    );
+
     // --- TEXTOS ---
-    const infoBasica = crearElementoHtml("div", "flex-1 flex flex-col gap-1 min-w-0");
-    const h3 = crearElementoHtml("h3", "text-base font-bold text-white break-words uppercase tracking-wide leading-tight", astronauta.nombre);
+    const infoBasica = document.createElement("div");
+    infoBasica.classList.add("flex-1", "flex", "flex-col", "gap-1", "min-w-0"); 
+
+    const h3 = document.createElement("h3");
+    h3.textContent = astronauta.nombre;
+    h3.classList.add(
+    "text-base",
+    "font-bold",
+    "text-white",
+    "break-words",
+    "uppercase",
+    "tracking-wide",
+    "leading-tight"
+); 
+
     // 1. Convertimos el texto de la especialidad a mayúsculas limpias
     const specialty = (astronauta.especialidad || astronauta.specialidad || "").toUpperCase().trim();
 
