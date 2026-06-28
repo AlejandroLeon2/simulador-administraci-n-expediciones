@@ -46,11 +46,11 @@ mapa de la card Mision
 
 */
 import { ElementoBuilder } from '../../scripts/elementHtml.js';
-import { iconFlecha } from "../icons/icon-flecha";
-import { iconO2 } from "../icons/icon-o2";
-import { iconBotella } from "../icons/icon-botella";
-import { iconUser } from "../icons/icon-user";
-import { iconRayo } from "../icons/icon-rayo";
+import { iconFlecha } from "../icons/icon-flecha.js";
+import { iconO2 } from '../icons/icon-O2.js';
+import { iconBotella } from "../icons/icon-botella.js";
+import { iconUser } from "../icons/icon-user.js";
+import { iconRayo } from "../icons/icon-rayo.js";
 import { iconCarga } from "../icons/icon-carga.js";
 
 export function renderCardMision(mision) {
