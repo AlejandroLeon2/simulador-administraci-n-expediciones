@@ -8,7 +8,7 @@ import { iconCarga } from "./icons/icon-carga";
 const menuItems = [
     { label: "Inicio", page: "inicio" },
     { label: "Astronautas", page: "astronautas" },
-    { label: "Expediciones", page: "expediciones" },
+    { label: "Misiones", page: "misiones" },
     { label: "Recursos", page: "recursos" },
     { label: "Carga", page: "carga" }
 ];

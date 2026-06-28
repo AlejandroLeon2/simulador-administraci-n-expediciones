@@ -45,7 +45,6 @@ mapa de la card Mision
               └── <p> (con clases, texto)
 
 */
-import { crearElementoHtml } from "../../scripts/utils";
 import { ElementoBuilder } from '../../scripts/elementHtml.js';
 import { iconFlecha } from "../icons/icon-flecha";
 import { iconO2 } from "../icons/icon-o2";

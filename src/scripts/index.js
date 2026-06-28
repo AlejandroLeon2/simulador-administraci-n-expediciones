@@ -7,6 +7,7 @@ import { Footer } from "../componentes/Footer.js";
 
 // 1. IMPORTAR MÓDULOS DE PAGINAS
 import { paginaAstronautas, initAstronautas } from "../page/astronautas/astronautas.js";
+import { paginaMisiones, initMisiones } from "../page/misiones/misiones.js";
 import { paginaRecursos, initRecursos } from "../page/recursos/recursos.js";
 
 // 2. INYECTAR LA ESTRUCTURA BASE DE LA APLICACIÓN
@@ -85,7 +86,8 @@ botonesMenu.forEach(boton => {
     if (textoBoton.includes("MISIONES")) {
         boton.addEventListener("click", () => {
             cambiarEnlaceActivo(boton);
-            contenedor.innerHTML = `<h1 class="text-white text-2xl font-bold p-4">🚀 Módulo de Misiones</h1>`;
+            contenedor.innerHTML = paginaMisiones();
+            initMisiones();
         });
     }
 

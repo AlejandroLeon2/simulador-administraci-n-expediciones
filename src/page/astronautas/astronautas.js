@@ -5,6 +5,8 @@ import "../../css/styles.css";
 import { astronautas as datosIniciales } from "../../data/astronautas.js";
 import { renderCardAstronauta } from "../../componentes/cardAstronauta.js";
 import { renderSelectedAstronaut } from "../../componentes/renderSelectAstronauta.js";
+import { ElementoBuilder } from "../../scripts/elementHtml.js";
+import { FilterComponent } from "../../componentes/ui/filterComponents.js";
 
 // 📦 ESTADO GLOBAL DE LA APLICACIÓN
 let listaAstronautas = [...datosIniciales];
@@ -12,38 +14,111 @@ let busquedaTexto = "";
 let filtroEspecialidad = "TODOS";
 let astronautaEditando = null;
 
+// ============================================================================
+// CONFIGURACIÓN DE FILTROS
+// ============================================================================
+const configuracionFiltros = {
+    busqueda: {
+        tipo: 'input',
+        id: "search-astronauta",
+        placeholder: "Buscar por nombre...",
+        clases: "flex-1 bg-slate-900 border border-slate-800 rounded-lg px-4 py-2 text-sm focus:outline-none focus:border-cyan-500 uppercase tracking-wider"
+    },
+    especialidad: {
+        tipo: 'select',
+        id: "filter-especialidad",
+        clases: "bg-slate-900 border border-slate-800 rounded-lg px-4 py-2 text-sm focus:outline-none focus:border-cyan-500 text-slate-400 cursor-pointer",
+        opciones: [
+            { valor: "TODOS", texto: "Todas las Especialidades" },
+            { valor: "PILOTO", texto: "Piloto" },
+            { valor: "INGENIERO", texto: "Ingeniero" },
+            { valor: "CIENTÍFICO", texto: "Científico" },
+            { valor: "MÉDICO", texto: "Médico" }
+        ]
+    },
+    contenedor: {
+        tipo: 'container',
+        clases: "flex flex-col sm:flex-row gap-4 mb-6"
+    }
+};
+
 
 // NUEVA VISTA BASE EXPORTADA (Para que index.js renderice los contenedores)
 
+/*
+mapa de la estructura paginaAstronautas
+<div>
+  ├── <div> (mainContainer - con clases)
+  │     ├── <div> (header - con clases)
+  │     │     ├── <div> (headerContent - con clases)
+  │     │     │     ├── <h1> (title - con clases, texto)
+  │     │     │     ├── <p> (subtitle - con clases, texto)
+  │     │     │     └── <button> (btnAgregar - con clases, texto, id)
+  │     ├── <div> (selectedContainer - con clases, id)
+  │     ├── <div> (filtrosContainer - usando FilterContainer)
+  │     │     ├── <input> (busqueda - usando FilterInput)
+  │     │     └── <select> (especialidad - usando FilterSelect)
+  │     └── <div> (astronautasContainer - con clases, id)
+  └── <div> (modal - con clases, id)
+        └── <div> (modalContent - con clases)
+              ├── <h2> (modalTitle - con clases, texto)
+              └── <form> (modalForm - con clases, id)
+                    ├── <div> (formGroups - varios)
+                    └── <div> (formActions - con clases)
+                          ├── <button> (btnCerrar - con clases, texto, id)
+                          └── <button> (btnGuardar - con clases, texto, id)
+*/
 export function paginaAstronautas() {
-    return `
-        <div class="text-white">
-            <div class="flex justify-between items-center mb-6">
-                <div>
-                    <h1 class="text-2xl font-black tracking-wider uppercase">Panel de Tripulación</h1>
-                    <p class="text-xs text-slate-400">Gestión de personal y visualización biométrica del simulador.</p>
-                </div>
-                <button id="btn-agregar-astronauta" class="px-4 py-2 bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold text-xs uppercase rounded-lg transition-all cursor-pointer tracking-wider">
-                    + Registrar Astronauta
-                </button>
-            </div>
-
-            <div id="selected-astronaut-container" class="mb-6"></div>
-
-            <div class="flex flex-col sm:flex-row gap-4 mb-6">
-                <input id="search-astronauta" type="text" placeholder="Buscar por nombre..." class="flex-1 bg-slate-900 border border-slate-800 rounded-lg px-4 py-2 text-sm focus:outline-none focus:border-cyan-500 uppercase tracking-wider" />
-                <select id="filter-especialidad" class="bg-slate-900 border border-slate-800 rounded-lg px-4 py-2 text-sm focus:outline-none focus:border-cyan-500 text-slate-400 cursor-pointer">
-                    <option value="TODOS">Todas las Especialidades</option>
-                    <option value="PILOTO">Piloto</option>
-                    <option value="INGENIERO">Ingeniero</option>
-                    <option value="CIENTÍFICO">Científico</option>
-                    <option value="MÉDICO">Médico</option>
-                </select>
-            </div>
-
-            <div id="astronautas-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 justify-items-center"></div>
-        </div>
-
+    const $mainContainer = new ElementoBuilder("div")
+        .clase("text-white");
+    
+    // Header
+    const $header = new ElementoBuilder("div")
+        .clase("flex justify-between items-center mb-6");
+    
+    const $headerContent = new ElementoBuilder("div");
+    const $title = new ElementoBuilder("h1")
+        .clase("text-2xl font-black tracking-wider uppercase")
+        .texto("Panel de Tripulación");
+    const $subtitle = new ElementoBuilder("p")
+        .clase("text-xs text-slate-400")
+        .texto("Gestión de personal y visualización biométrica del simulador.");
+    
+    $headerContent.hijo($title.build()).hijo($subtitle.build());
+    
+    const $btnAgregar = new ElementoBuilder("button")
+        .clase("px-4 py-2 bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold text-xs uppercase rounded-lg transition-all cursor-pointer tracking-wider")
+        .atributo("id", "btn-agregar-astronauta")
+        .texto("+ Registrar Astronauta");
+    
+    $header.hijo($headerContent.build()).hijo($btnAgregar.build());
+    
+    // Contenedor de astronauta seleccionado
+    const $selectedContainer = new ElementoBuilder("div")
+        .clase("mb-6")
+        .atributo("id", "selected-astronaut-container");
+    
+    // Contenedor de filtros usando componente genérico
+    const $filtrosContainer = FilterComponent({
+        ...configuracionFiltros.contenedor,
+        componentes: [
+            FilterComponent(configuracionFiltros.busqueda),
+            FilterComponent(configuracionFiltros.especialidad)
+        ]
+    });
+    
+    // Contenedor de astronautas
+    const $astronautasContainer = new ElementoBuilder("div")
+        .clase("grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 justify-items-center")
+        .atributo("id", "astronautas-container");
+    
+    $mainContainer.hijo($header.build());
+    $mainContainer.hijo($selectedContainer.build());
+    $mainContainer.hijo($filtrosContainer);
+    $mainContainer.hijo($astronautasContainer.build());
+    
+    // Modal (mantenido como HTML string por complejidad)
+    const modalHTML = `
         <div id="modal-astronauta" style="display: none;" class="fixed inset-0 z-50 bg-black/70 flex items-center justify-center p-4">
             <div class="bg-slate-950 border border-cyan-800 rounded-xl p-6 w-full max-w-md max-h-[85vh] overflow-y-auto shadow-[0_0_25px_rgba(34,211,238,0.15)] flex flex-col">
                 
@@ -119,6 +194,8 @@ export function paginaAstronautas() {
             </div>
         </div>
     `;
+    
+    return $mainContainer.build().outerHTML + modalHTML;
 }
 
 function normalizar(texto) {
@@ -201,8 +278,8 @@ export function renderizarAstronautas() {
 
 // ⚡ ESCUCHADORES DE EVENTOS ACTUALIZADOS
 function configurarEventosFiltros() {
-    const inputBuscar = document.getElementById("search-astronauta");
-    const selectEspecialidad = document.getElementById("filter-especialidad");
+    const inputBuscar = document.getElementById(configuracionFiltros.busqueda.id);
+    const selectEspecialidad = document.getElementById(configuracionFiltros.especialidad.id);
 
     if (inputBuscar) {
         inputBuscar.addEventListener("input", (e) => {
