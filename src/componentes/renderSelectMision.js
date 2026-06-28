@@ -27,7 +27,7 @@ mapa de la estructura renderSelectedMision
 */
 
 import { ElementoBuilder } from '../scripts/elementHtml.js';
-import { iconO2 } from './icons/icon-o2.js';
+import { iconO2 } from './icons/icon-O2.js';
 import { iconBotella } from './icons/icon-botella.js';
 import { iconUser } from './icons/icon-user.js';
 import { iconRayo } from './icons/icon-rayo.js';
