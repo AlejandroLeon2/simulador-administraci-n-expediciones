@@ -4,6 +4,8 @@ import { Header } from "../componentes/Header.js";
 import Sidebar from '../componentes/Sidebar.js';
 import { Footer } from "../componentes/Footer.js";
 
+import { iniciarTiempoExpedicion } from "./tiempoExpedicion.js";
+
 
 // 1. IMPORTAR MÓDULOS DE PAGINAS
 import { paginaAstronautas, initAstronautas } from "../page/astronautas/astronautas.js";
@@ -25,6 +27,7 @@ document.querySelector("#app").innerHTML = `
     ${Footer()}
 `;
 
+iniciarTiempoExpedicion();
 
 // 3. CAPTURAR CONTENEDORES Y BOTONES
 const contenedor = document.querySelector("#contenido");
