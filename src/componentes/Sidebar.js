@@ -23,7 +23,7 @@ export default function Sidebar() {
             <div class="h-20 top-0 px-2 flex items-center gap-3 border-b border-slate-800/60 bg-slate-950 whitespace-normal break-normal">
                 <div class="h-15 w-15 overflow-hidden rounded-full border border-slate-700 bg-slate-950 shrink-0 shadow-[0_0_10px_rgba(255,255,255,0.1)]">
                     <img 
-                        src="../src/assets/logo.png" 
+                        src="/logo.png" 
                         alt="Logo Nova Horizon" 
                         class="h-full w-full object-cover"
                     />
@@ -89,22 +89,26 @@ export default function Sidebar() {
 
 
              <div class="flex flex-col w-full pt-2 mt-6 h-auto bg-slate-900 border-r border-slate-800/80 rounded-2xl">
-                <div class="span text-lime-500 text-center text-sm mt-2">
+                <div class="span text-lime-500 text-center text-xl mt-2">
                     <span> DÍA ESTELAR </span>
                 </div>
 
                 <div class="titulo-dias  text-white text-center">
-                    <h1 id="dia-estelar" class="text-3xl font-black tracking-wider text-white uppercase truncate leading-tight">
-                        1
+                    <h1 id="dia-estelar" class="text-2xl font-black tracking-wider text-white uppercase truncate leading-tight">
+                        0000
                     </h1>
                 </div>
 
-                <div class="fecha-cronometro text-center text-sm text-white mb-1"> 
-                    <p> 15:42:18 </p>
+                <div id="hora-actual" class="cantidad-max text-center text-sm text-white mb-1"> 
+                    <p> 00:00:00 </p>
                 </div>
 
-                <div class="fecha-tradicional text-center text-sm text-white fuente mb-4">
-                    <p>Martes, 23 de Junio de 2026</p>
+                <div id="fecha-actual" class="text-center text-xs text-white fuente mb-4">
+                    <p>Lunes 29 de Junio de 2026</p>
+                </div>
+
+                <div id="tiempo-expedicion" class="text-center text-sm text-cyan-500 fuente mb-4">
+                    <p>0d 0h 0m 0s</p>
                 </div>
 
             </div>
@@ -114,3 +118,4 @@ export default function Sidebar() {
         
     `;
 }
+
