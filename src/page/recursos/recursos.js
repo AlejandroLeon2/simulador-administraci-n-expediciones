@@ -1,36 +1,49 @@
-// ============================================================================
-// MÓDULO 4: RECURSOS - Daniel
-// ============================================================================
+export class Recursos {
+    comida = 0;
+    oxigeno = 0;
+    energia = 0;
+    monedas = 0;
+    combustible = 0;
+    maxRecurso = 1000;
+    constructor() {
+        this.comida = 100;
+        this.oxigeno = 100;
+        this.energia = 100;
+        this.monedas = 100;
+        this.combustible = 100;
+    }
 
-// Paso 4.2: Implementar mostrarRecursos()
-// Recibe: No recibe parámetros
-// Retorna: Objeto recursos con propiedades: oxigeno, combustible, comida, energia
-// Sub-tareas:
-// 1. Importar los datos de recursos.js
-// 2. Crear la función mostrarRecursos()
-// 3. Retornar el objeto recursos
+    getComida() {
+        return this.comida;
+    }
 
-import { renderCardRecursos } from '../../componentes/cardRecursos.js';
-import { recursos } from '../../data/recursos.js';
+    getOxigeno() {
+        return this.oxigeno;
+    }
 
+    getEnergia() {
+        return this.energia;
+    }
 
-function mostrarRecursos() {
-    // TODO: Implementar lógica aquí
+    getMonedas() {
+        return this.monedas;
+    }
+
+    getCombustible() {
+        return this.combustible;
+    }
+
+    disminuirCantidad(recurso, cantidad) {
+        if (cantidad > 0 && this[recurso] >= cantidad && this[recurso] > 0) {
+            this[recurso] -= cantidad;
+        }
+
+    }
+
+    aumentarCantidad(recurso, cantidad) {
+        if (cantidad > 0 && this[recurso] + cantidad <= this.maxRecurso) {
+            this[recurso] += cantidad;
+        }
+    }
+
 }
-
-
-// Paso 4.4: Implementar renderizarRecursos()
-// Sub-tareas:
-// 1. Llamar a mostrarRecursos() para obtener datos
-// 2. Obtener el contenedor del DOM
-// 3. Llamar a renderCardRecursos() con los datos
-// 4. Agregar la card al contenedor
-// 5. Llamar a la función al final del archivo
-
-function renderizarRecursos() {
-    // TODO: Implementar lógica aquí
-}
-
-
-// Ejecutar la función para renderizar recursos
-// renderizarRecursos();

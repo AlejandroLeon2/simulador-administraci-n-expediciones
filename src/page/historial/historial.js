@@ -1,3 +1,9 @@
+export function paginaHistorial() {
+  return `<h1 class="text-white text-xl font-bold">⏳ HISTORIAL DE EXPEDICIONES</h1>`;
+}
+//prueba
+
+
 // ============================================================================
 // MÓDULO 3: HISTORIAL - Robert
 // ============================================================================
