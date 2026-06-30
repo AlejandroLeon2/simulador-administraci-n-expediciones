@@ -6,6 +6,11 @@ export class Astronautas {
     constructor() {
         this.listAstronautas = astronautas;
     }
+    generarIdHash(nombre) {
+        const base = nombre + new Date().getTime();
+        const hash = Utilities.computeDigest(Utilities.DigestAlgorithm.SHA_256, base);
+        return hash.map(b => ('0' + (b & 0xFF).toString(16)).slice(-2)).join('');
+    }
     
     getListAstronautas() {
         return this.listAstronautas;

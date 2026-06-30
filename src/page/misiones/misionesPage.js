@@ -91,29 +91,19 @@ mapa de la estructura paginaMisiones
   │     └── <div> (misionesContainer - con clases, id)
 */
 export function paginaMisiones() {
-    const $mainContainer = new ElementoBuilder("div")
-        .clase("text-white");
-    
+    const $mainContainer = new ElementoBuilder("div").clase("text-white");
     // Header
-    const $header = new ElementoBuilder("div")
-        .clase("flex justify-between items-center mb-6");
-    
+    const $header = new ElementoBuilder("div").clase("flex justify-between items-center mb-6");
     const $headerContent = new ElementoBuilder("div");
-    const $title = new ElementoBuilder("h1")
-        .clase("text-2xl font-black tracking-wider uppercase")
-        .texto("Panel de Misiones");
-    const $subtitle = new ElementoBuilder("p")
-        .clase("text-xs text-slate-400")
-        .texto("Gestión de operaciones espaciales y asignación de tripulación.");
-    
+    const $title = new ElementoBuilder("h1").clase("text-2xl font-black tracking-wider uppercase").texto("Panel de Misiones");
+    const $subtitle = new ElementoBuilder("p").clase("text-xs text-slate-400").texto("Gestión de operaciones espaciales y asignación de tripulación.");
+
     $headerContent.hijo($title.build()).hijo($subtitle.build());
     $header.hijo($headerContent.build());
-    
+
     // Contenedor de misión seleccionada
-    const $selectedContainer = new ElementoBuilder("div")
-        .clase("mb-6")
-        .atributo("id", "selected-mision-container");
-    
+    const $selectedContainer = new ElementoBuilder("div").clase("mb-6").atributo("id", "selected-mision-container");
+
     // Contenedor de filtros usando componente genérico
     const $filtrosContainer = FilterComponent({
         ...configuracionFiltros.contenedor,
@@ -122,17 +112,15 @@ export function paginaMisiones() {
             FilterComponent(configuracionFiltros.dificultad)
         ]
     });
-    
+
     // Contenedor de misiones
-    const $misionesContainer = new ElementoBuilder("ul")
-        .clase("grid grid-cols-1 md:grid-cols-2  gap-6 justify-items-center")
-        .atributo("id", "misiones-container");
-    
+    const $misionesContainer = new ElementoBuilder("ul").clase("grid grid-cols-1 md:grid-cols-2  gap-6 justify-items-center").atributo("id", "misiones-container");
+
     $mainContainer.hijo($header.build());
     $mainContainer.hijo($selectedContainer.build());
     $mainContainer.hijo($filtrosContainer);
     $mainContainer.hijo($misionesContainer.build());
-    
+
     return $mainContainer.build().outerHTML;
 }
 
@@ -152,11 +140,8 @@ export function renderizarMisiones() {
     }
 
     if (misionesOrdenadas.length === 0) {
-        const $noResults = new ElementoBuilder("div")
-            .clase("col-span-full text-center p-10");
-        const $message = new ElementoBuilder("h3")
-            .clase("text-red-400 text-xl")
-            .texto("No se encontraron misiones");
+        const $noResults = new ElementoBuilder("div").clase("col-span-full text-center p-10");
+        const $message = new ElementoBuilder("h3").clase("text-red-400 text-xl").texto("No se encontraron misiones");
         $noResults.hijo($message.build());
         container.appendChild($noResults.build());
         return;
