@@ -8,9 +8,9 @@ import { iniciarTiempoExpedicion } from "./tiempoExpedicion.js";
 
 
 // 1. IMPORTAR MÓDULOS DE PAGINAS
-import { paginaAstronautas, initAstronautas } from "../page/astronautas/astronautas.js";
-import { paginaMisiones, initMisiones } from "../page/misiones/misiones.js";
-import { paginaRecursos, initRecursos } from "../page/recursos/recursos.js";
+import { paginaAstronautas, initAstronautas } from "../page/astronautas/astronautasPage.js";
+import { paginaMisiones, initMisiones } from "../page/misiones/misionesPage.js";
+import { paginaRecursos, initRecursos } from "../page/recursos/recursosPage.js";
 
 // 2. INYECTAR LA ESTRUCTURA BASE DE LA APLICACIÓN
 document.querySelector("#app").innerHTML = `

@@ -1,17 +1,8 @@
+import { Recursos } from "../page/recursos/recursos";
 export function Header() {
     return `
             <header
-                class="fixed
-                    top-4
-                    left-72
-                    right-4        ml-6
-                    h-14
-                    bg-slate-900/60
-                    backdrop-blur-md
-                    border border-slate-800/80
-                    rounded-xl
-                    px-6
-                    z-40">
+                class="fixed top-4 left-72 right-4 ml-6 h-14 bg-slate-900/60 backdrop-blur-md border border-slate-800/80 rounded-xl px-6 z-40">
 
             <div class="flex h-full items-center justify-between">
 
@@ -43,7 +34,7 @@ export function Header() {
 
                         <div class="flex items-center gap-1.5 bg-emerald-500/10 border border-emerald-500/20 px-3 py-1 rounded-lg">
                             <span class="text-sm font-black text-emerald-400 font-mono">
-                                0
+                                ${new Recursos().getMonedas()}
                             </span>
 
                             <svg xmlns="http://www.w3.org/2000/svg"
@@ -60,9 +51,6 @@ export function Header() {
                         </div>
                     </div>
                 </div>
-
-                
-
             </div>
 
         </header>

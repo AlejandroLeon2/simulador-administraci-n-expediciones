@@ -1,5 +1,5 @@
 // Fecha en la que inició la expedición
-const inicioExpedicion = new Date("2026-01-01T00:00:00");
+const inicioExpedicion = new Date("2026-06-01T00:00:00");
 
 function actualizarTiempo() {
 
