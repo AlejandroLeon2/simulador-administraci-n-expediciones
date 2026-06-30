@@ -1,6 +1,3 @@
-console.log("URL actual:", window.location.href);
-console.log(document.body.innerHTML);
-
 import "../../css/styles.css";
 import { astronautas as datosIniciales } from "../../data/astronautas.js";
 import { renderCardAstronauta } from "../../componentes/cardAstronauta.js";
@@ -69,34 +66,19 @@ mapa de la estructura paginaAstronautas
                           └── <button> (btnGuardar - con clases, texto, id)
 */
 export function paginaAstronautas() {
-    const $mainContainer = new ElementoBuilder("div")
-        .clase("text-white");
-    
+    const $mainContainer = new ElementoBuilder("div").clase("text-white");
     // Header
-    const $header = new ElementoBuilder("div")
-        .clase("flex justify-between items-center mb-6");
-    
+    const $header = new ElementoBuilder("div").clase("flex justify-between items-center mb-6");
     const $headerContent = new ElementoBuilder("div");
-    const $title = new ElementoBuilder("h1")
-        .clase("text-2xl font-black tracking-wider uppercase")
-        .texto("Panel de Tripulación");
-    const $subtitle = new ElementoBuilder("p")
-        .clase("text-xs text-slate-400")
-        .texto("Gestión de personal y visualización biométrica del simulador.");
-    
+    const $title = new ElementoBuilder("h1").clase("text-2xl font-black tracking-wider uppercase").texto("Panel de Tripulación");
+    const $subtitle = new ElementoBuilder("p").clase("text-xs text-slate-400").texto("Gestión de personal y visualización biométrica del simulador.");
     $headerContent.hijo($title.build()).hijo($subtitle.build());
     
-    const $btnAgregar = new ElementoBuilder("button")
-        .clase("px-4 py-2 bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold text-xs uppercase rounded-lg transition-all cursor-pointer tracking-wider")
-        .atributo("id", "btn-agregar-astronauta")
-        .texto("+ Registrar Astronauta");
-    
+    const $btnAgregar = new ElementoBuilder("button").clase("px-4 py-2 bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold text-xs uppercase rounded-lg transition-all cursor-pointer tracking-wider").atributo("id", "btn-agregar-astronauta").texto("+ Registrar Astronauta");
     $header.hijo($headerContent.build()).hijo($btnAgregar.build());
     
     // Contenedor de astronauta seleccionado
-    const $selectedContainer = new ElementoBuilder("div")
-        .clase("mb-6")
-        .atributo("id", "selected-astronaut-container");
+    const $selectedContainer = new ElementoBuilder("div").clase("mb-6").atributo("id", "selected-astronaut-container");
     
     // Contenedor de filtros usando componente genérico
     const $filtrosContainer = FilterComponent({
@@ -108,9 +90,7 @@ export function paginaAstronautas() {
     });
     
     // Contenedor de astronautas
-    const $astronautasContainer = new ElementoBuilder("div")
-        .clase("grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 justify-items-center")
-        .atributo("id", "astronautas-container");
+    const $astronautasContainer = new ElementoBuilder("div").clase("grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 justify-items-center").atributo("id", "astronautas-container");
     
     $mainContainer.hijo($header.build());
     $mainContainer.hijo($selectedContainer.build());
