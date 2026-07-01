@@ -103,7 +103,8 @@ botonesMenu.forEach(boton => {
 
         contenedor.innerHTML = paginaRecursos();
         initRecursos(); // 
-    });
+         });
+    }
 
     // BOTÓN HISTORIAL / CARGA
     if (textoBoton.includes("CARGA") || textoBoton.includes("HISTORIAL")) {
@@ -114,7 +115,5 @@ botonesMenu.forEach(boton => {
             initHistorial();
         });
     }
-
-}
 
 });

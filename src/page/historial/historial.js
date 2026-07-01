@@ -30,8 +30,4 @@ export class Historial {
     constructor() {
         this.historial = historial;
     }
-
-    obtenerHistorial() {
-        return this.historial;
-    }
 }
