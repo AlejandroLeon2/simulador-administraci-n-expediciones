@@ -94,12 +94,13 @@ export default function CardRecursos(recurso) {
                 </div>
 
             </div>
-
+            ${nombreLimpio !== "monedas" ? `
             <button
-                class="w-2/3 mt-3 mx-auto flex justify-center bg-emerald-900/50 text-white border-emerald-500 rounded-md hover:bg-emerald-500 hover:text-black transition-all cursor-pointer tracking-wider"
+                class="btn-comprar w-2/3 mt-3 mx-auto flex justify-center bg-emerald-900/50 text-white border border-emerald-500 rounded-md hover:bg-emerald-500 hover:text-black transition-all cursor-pointer tracking-wider py-1"
                 data-nombre="${recurso.nombre}">
                 🛒 Comprar Recurso
             </button>
+            ` : ""}
 
         </div>
     `;

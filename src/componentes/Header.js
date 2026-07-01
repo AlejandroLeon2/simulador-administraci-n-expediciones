@@ -1,4 +1,4 @@
-import { Recursos } from "../page/recursos/recursos";
+import { recursos } from "../data/recursos.js";
 export function Header() {
     return `
             <header
@@ -33,8 +33,8 @@ export function Header() {
                         </span>
 
                         <div class="flex items-center gap-1.5 bg-emerald-500/10 border border-emerald-500/20 px-3 py-1 rounded-lg">
-                            <span class="text-sm font-black text-emerald-400 font-mono">
-                                ${new Recursos().getMonedas()}
+                            <span id="header-monedas" class="text-sm font-black text-emerald-400 font-mono">
+                                ${recursos.find(r => r.nombre === "Monedas")?.cantidad ?? 0}
                             </span>
 
                             <svg xmlns="http://www.w3.org/2000/svg"
