@@ -11,6 +11,7 @@ import { iniciarTiempoExpedicion } from "./tiempoExpedicion.js";
 import { paginaAstronautas, initAstronautas } from "../page/astronautas/astronautasPage.js";
 import { paginaMisiones, initMisiones } from "../page/misiones/misionesPage.js";
 import { paginaRecursos, initRecursos } from "../page/recursos/recursosPage.js";
+import { paginaHistorial , initHistorial} from "../page/historial/historialPage.js";
 
 // 2. INYECTAR LA ESTRUCTURA BASE DE LA APLICACIÓN
 document.querySelector("#app").innerHTML = `
@@ -102,7 +103,17 @@ botonesMenu.forEach(boton => {
 
         contenedor.innerHTML = paginaRecursos();
         initRecursos(); // 
-    });
-}
+         });
+    }
+
+    // BOTÓN HISTORIAL / CARGA
+    if (textoBoton.includes("CARGA") || textoBoton.includes("HISTORIAL")) {
+        boton.addEventListener("click", () => {
+            cambiarEnlaceActivo(boton);
+
+            contenedor.innerHTML = paginaHistorial();
+            initHistorial();
+        });
+    }
 
 });
