@@ -42,7 +42,7 @@ function cambiarEnlaceActivo(botonPresionado) {
     botonesMenu.forEach(btn => {
         // Removemos la clase maestra de todos los botones
         btn.classList.remove("item-menu-activo");
-        
+
         // Nos aseguramos de que todos regresen a su color gris apagado original
         btn.classList.add("text-slate-400");
     });
@@ -80,7 +80,7 @@ botonesMenu.forEach(boton => {
     if (textoBoton.includes("ASTRONAUTAS")) {
         boton.addEventListener("click", () => {
             cambiarEnlaceActivo(boton);
-            
+
             contenedor.innerHTML = paginaAstronautas();
             initAstronautas();
         });
@@ -98,8 +98,9 @@ botonesMenu.forEach(boton => {
 
     //BOTON RECURSOS
     if (textoBoton.includes("RECURSOS")) {
-    boton.addEventListener("click", () => {
-        cambiarEnlaceActivo(boton);
+        boton.addEventListener("click", () => {
+            cambiarEnlaceActivo(boton);
+
 
         contenedor.innerHTML = paginaRecursos();
         initRecursos(); // 

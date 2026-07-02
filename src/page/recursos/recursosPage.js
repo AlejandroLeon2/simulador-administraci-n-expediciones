@@ -1,6 +1,7 @@
 
-import { recursos } from "../../data/recursos.js";
-import CardRecursos from "../../componentes/cardRecursos.js";
+import { recursos as recursosData } from "../../data/recursos.js";
+import recursos from "./recursos.js";
+import CardRecursos from "../../componentes/cards/cardRecursos.js";
 
 export function paginaRecursos() {
     return `
@@ -16,31 +17,29 @@ export function paginaRecursos() {
 
 export function initRecursos() {
     const contenedor = document.getElementById("contenedor-recursos");
+    render(contenedor);
+    const $comprarComida = document.getElementById("comprar-comida");
+    const $comprarOxigeno = document.getElementById("comprar-oxigeno");
+    const $comprarEnergia = document.getElementById("comprar-energia");
+    const $comprarCombustible = document.getElementById("comprar-combustible");
 
-    function render() {
-        contenedor.innerHTML = recursos.map(CardRecursos).join("");
-        asignarEventos();
-    }
+    $comprarComida.addEventListener("click", () => {
+        recursos.aumentarCantidad("comida", 100);
+    });
 
-    function asignarEventos() {
-        document.querySelectorAll(".recargar").forEach(btn => {
-            btn.addEventListener("click", (e) => {
+    $comprarOxigeno.addEventListener("click", () => {
+        recursos.aumentarCantidad("oxigeno", 100);
+    });
 
-                const nombre = e.target.dataset.nombre;
-                const recurso = recursos.find(r => r.nombre === nombre);
+    $comprarEnergia.addEventListener("click", () => {
+        recursos.aumentarCantidad("energia", 100);
+    });
 
-                if (recurso.cantidad < recurso.max) {
-                    recurso.cantidad += 100;
+    $comprarCombustible.addEventListener("click", () => {
+        recursos.aumentarCantidad("combustible", 100);
+    });
+}
+function render(element) {
+    element.innerHTML = recursosData.map(CardRecursos).join("");
 
-                    if (recurso.cantidad > recurso.max) {
-                        recurso.cantidad = recurso.max;
-                    }
-
-                    render();
-                }
-            });
-        });
-    }
-
-    render();
 }

@@ -8,10 +8,13 @@ export const misiones = [
     "tiempo": 45,
     "imagen": "https://cloudfront-eu-central-1.images.arcpublishing.com/prisaradio/S7QKQXPRGFKTBL6ITGESOJ32HQ.jpg",
     "requerimientos": { "combustible": 90, "oxigeno": 70, "astronautas": 4, "comida": 50, "energia": 40 },
-    "consumo": { "astronautas": 1, "combustible": 10, "oxigeno": 10, "comida": 10, "energia": 10 },
+    "consumo": { "astronautas": 1, "combustible": 90, "oxigeno": 10, "comida": 10, "energia": 10 },
     "especialidades": [
       { "rol": "Ingeniero", "asignado": false },
       { "rol": "Médico", "asignado": false }
+    ],
+    "listAstronautas": [
+      { id: 1, nombre: "Alex", rol: "Ingeniero" }
     ]
   },
   {
@@ -27,6 +30,9 @@ export const misiones = [
     "especialidades": [
       { "rol": "Científico", "asignado": false },
       { "rol": "Ingeniero", "asignado": false }
+    ],
+    "listAstronautas": [
+      { id: 1, nombre: "Alex", rol: "Ingeniero" }
     ]
   },
   {
@@ -42,6 +48,9 @@ export const misiones = [
     "especialidades": [
       { "rol": "Ingeniero", "asignado": false },
       { "rol": "Piloto", "asignado": false }
+    ],
+    "listAstronautas": [
+      { id: 1, nombre: "Alex", rol: "Ingeniero" }
     ]
   },
   {
@@ -57,6 +66,9 @@ export const misiones = [
     "especialidades": [
       { "rol": "Ingeniero", "asignado": false },
       { "rol": "Médico", "asignado": false }
+    ],
+    "listAstronautas": [
+      { id: 1, nombre: "Alex", rol: "Ingeniero" }
     ]
   },
   {
@@ -73,6 +85,9 @@ export const misiones = [
       { "rol": "Piloto", "asignado": false },
       { "rol": "Médico", "asignado": false },
       { "rol": "Ingeniero", "asignado": false }
+    ],
+    "listAstronautas": [
+      { id: 1, nombre: "Alex", rol: "Ingeniero" }
     ]
   },
   {
@@ -88,6 +103,9 @@ export const misiones = [
     "especialidades": [
       { "rol": "Científico", "asignado": false },
       { "rol": "Médico", "asignado": false }
+    ],
+    "listAstronautas": [
+      { id: 1, nombre: "Alex", rol: "Ingeniero" }
     ]
   },
   {
@@ -103,6 +121,9 @@ export const misiones = [
     "especialidades": [
       { "rol": "Piloto", "asignado": false },
       { "rol": "Ingeniero", "asignado": false }
+    ],
+    "listAstronautas": [
+      { id: 1, nombre: "Alex", rol: "Ingeniero" }
     ]
   },
   {
@@ -118,6 +139,9 @@ export const misiones = [
     "especialidades": [
       { "rol": "Científico", "asignado": false },
       { "rol": "Piloto", "asignado": false }
+    ],
+    "listAstronautas": [
+      { id: 1, nombre: "Alex", rol: "Ingeniero" }
     ]
   },
   {
@@ -132,6 +156,9 @@ export const misiones = [
     "consumo": { "astronautas": 1, "combustible": 6, "oxigeno": 6, "comida": 6, "energia": 6 },
     "especialidades": [
       { "rol": "Ingeniero", "asignado": false }
+    ],
+    "listAstronautas": [
+      { id: 1, nombre: "Alex", rol: "Ingeniero" }
     ]
   },
   {
@@ -148,6 +175,9 @@ export const misiones = [
       { "rol": "Científico", "asignado": false },
       { "rol": "Ingeniero", "asignado": false },
       { "rol": "Médico", "asignado": false }
+    ],
+    "listAstronautas": [
+      { id: 1, nombre: "Alex", rol: "Ingeniero" }
     ]
   },
   {
@@ -162,6 +192,9 @@ export const misiones = [
     "consumo": { "astronautas": 1, "combustible": 5, "oxigeno": 5, "comida": 5, "energia": 5 },
     "especialidades": [
       { "rol": "Piloto", "asignado": false }
+    ],
+    "listAstronautas": [
+      { id: 1, nombre: "Alex", rol: "Ingeniero" }
     ]
   },
   {
@@ -178,6 +211,9 @@ export const misiones = [
       { "rol": "Piloto", "asignado": false },
       { "rol": "Médico", "asignado": false },
       { "rol": "Ingeniero", "asignado": false }
+    ],
+    "listAstronautas": [
+      { id: 1, nombre: "Alex", rol: "Ingeniero" }
     ]
   }
 ];

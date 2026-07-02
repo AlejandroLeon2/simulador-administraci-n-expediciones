@@ -54,38 +54,33 @@ import { iconRayo } from "../icons/icon-rayo.js";
 import { iconCarga } from "../icons/icon-carga.js";
 
 export function renderCardMision(mision) {
-    const $liContenedor = new ElementoBuilder("li");
+    const $liContenedor = new ElementoBuilder("li").clase("border border-slate-700 rounded-md hover:scale-105 duration-500");
 
     // Bloque de información
-    const $divInfo = new ElementoBuilder("div").clase("grid  grid-cols-5 border p-1 border-gray-200 rounded-xs gap-4 justify-center items-center");
-    const $imgMision = new ElementoBuilder("img").clase("h-16 w-16 col-span-1").atributo("src",mision.imagen).atributo("alt",mision.nombre).atributo("title", mision.nombre);
+    const $divInfo = new ElementoBuilder("div").clase("grid  grid-cols-5  p-2  rounded-xs gap-4 justify-center items-center");
+    const $imgMision = new ElementoBuilder("img").clase("h-16 w-16 col-span-1").atributo("src", mision.imagen).atributo("alt", mision.nombre).atributo("title", mision.nombre);
 
-    const $divInfoTitulo = new ElementoBuilder("div").clase("flex flex-col justify-center col-span-3");
+    const $divInfoTitulo = new ElementoBuilder("div").clase("flex flex-col justify-center items-center col-span-3");
     const $h3Titulo = new ElementoBuilder("h3").clase(" font-primary ").texto(mision.nombre);
-    const $pTitulo = new ElementoBuilder("p").clase("text-xs primary-text line-clamp-1").texto(mision.descripcion);
 
-    const $divInfoTime = new ElementoBuilder("div").clase("flex flex-col justify-center col-span-1");
+    const $divInfoTime = new ElementoBuilder("div").clase("flex flex-col justify-center items-center col-span-1");
     const $spanTime = new ElementoBuilder("span").clase("font-primary").texto("Tiempo");
     const $pTime = new ElementoBuilder("p").clase(" text-xs primary-text").texto(mision.tiempo);
 
-    $divInfoTitulo.hijo($h3Titulo.build()).hijo($pTitulo.build());
+    $divInfoTitulo.hijo($h3Titulo.build());
     $divInfoTime.hijo($spanTime.build()).hijo($pTime.build());
     $divInfo.hijo($imgMision.build()).hijo($divInfoTitulo.build()).hijo($divInfoTime.build());
 
     // Bloque de enlace
-    const $divEnlace = new ElementoBuilder("div").clase("grid grid-cols-3 justify-around items-center");
-    const $h4Enlace = new ElementoBuilder("h4").clase("col-span-2 text-xs font-primary text-center").texto("Requisitos de mision");
-    const $aEnlace = new ElementoBuilder("a").clase("flex primary-text items-center justify-center duration-500 text-xl  group hover:border-gray-200 border border-transparent");
-    const $spanEnlace = new ElementoBuilder("span").clase("text-sm w-0 h-5 group-hover:pl-1 group-hover:w-full overflow-hidden duration-500").texto("ver resumen");
-    const $iCon = new ElementoBuilder("i").inyectar(iconFlecha());
+    const $divEnlace = new ElementoBuilder("div").clase("flex flex-col justify-center items-center  col-span-2");
+    const $h4Enlace = new ElementoBuilder("h4").clase("text-xs font-primary text-center").texto("Requisitos de mision");
 
-    $aEnlace.hijo($spanEnlace.build()).hijo($iCon.build());
-    $divEnlace.hijo($h4Enlace.build()).hijo($aEnlace.build());
+    $divEnlace.hijo($h4Enlace.build());
 
     // Bloque de recursos
-    const $ulRecursos = new ElementoBuilder("ul").clase(" flex justify-between items-center ");
-    mision.requerimientos.forEach(([clave, valor]) => {
-        const $liRecurso = new ElementoBuilder("li").clase("flex flex-col w-full h-full p-4 bg-red-300 justify-center items-center");
+    const $ulRecursos = new ElementoBuilder("ul").clase(" flex justify-between items-center p-2 gap-4 ");
+    for (let clave in mision.requerimientos) {
+        const $liRecurso = new ElementoBuilder("li").clase("flex flex-col w-full h-full p-4 bg-slate-900/60 justify-center items-center");
         switch (clave) {
             case "oxigeno": $liRecurso.inyectar(iconO2("h-5 w-5"));
                 break;
@@ -100,10 +95,10 @@ export function renderCardMision(mision) {
             default:
                 break;
         }
-        const $pRecurso = new ElementoBuilder("p").clase(" text-lg").texto(valor);
+        const $pRecurso = new ElementoBuilder("p").clase(" text-lg").texto(mision.requerimientos[clave]);
         $liRecurso.hijo($pRecurso.build());
         $ulRecursos.hijo($liRecurso.build());
-    });
+    };
 
     $liContenedor.hijo($divInfo.build()).hijo($divEnlace.build()).hijo($ulRecursos.build());
     return $liContenedor.build();

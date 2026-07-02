@@ -9,14 +9,15 @@
 // 4. Inicializar la página
 
 import "../../css/styles.css";
-import { misiones as datosIniciales } from "../../data/misiones.js";
 import { renderCardMision } from "../../componentes/cards/cardMision.js";
-import { renderSelectedMision } from "../../componentes/renderSelectMision.js";
+import { renderSelectedMision, getDificultadColor } from "../../componentes/renderSelectMision.js";
 import { ElementoBuilder } from "../../scripts/elementHtml.js";
-import { FilterComponent } from "../../componentes/ui/filterComponents.js";
+import { FilterComponent } from "../../componentes/ui/filterComponents.js"
+import { Misiones } from "./misiones.js";
+import { ElementDom } from "../../scripts/utils.js";
 
 // 📦 ESTADO GLOBAL DE LA APLICACIÓN
-let listaMisiones = procesarMisiones(datosIniciales);
+const misiones = new Misiones();
 let busquedaTexto = "";
 let filtroDificultad = "TODAS";
 
@@ -48,30 +49,6 @@ const configuracionFiltros = {
         clases: "flex flex-col sm:flex-row gap-4 mb-6"
     }
 };
-
-// ============================================================================
-// LÓGICA DE NEGOCIO
-// ============================================================================
-function procesarMisiones(misiones) {
-    return misiones.map(element => {
-        const arrayRequerimientos = Object.entries(element.requerimientos);
-        return { ...element, requerimientos: arrayRequerimientos }
-    });
-}
-
-function filtrarMisiones(misiones, busquedaTexto, filtroDificultad) {
-    return misiones.filter((mision) => {
-        const coincideNombre = mision.nombre
-            .toLowerCase()
-            .includes(busquedaTexto.toLowerCase());
-
-        const coincideDificultad =
-            filtroDificultad === "TODAS" ||
-            mision.dificultad === parseInt(filtroDificultad);
-
-        return coincideNombre && coincideDificultad;
-    });
-}
 
 // ============================================================================
 // ESTRUCTURA DE LA PÁGINA
@@ -132,14 +109,14 @@ export function renderizarMisiones() {
     if (!container) return;
 
     container.innerHTML = "";
-    const filtrados = filtrarMisiones(listaMisiones, busquedaTexto, filtroDificultad);
-    const misionesOrdenadas = [...filtrados].sort((a, b) => b.recompensa - a.recompensa);
+    const listMisionesFiltradas = misiones.filtrarMisiones(busquedaTexto, filtroDificultad);
 
-    if (misionesOrdenadas.length > 0) {
-        renderSelectedMision(misionesOrdenadas[0]);
+    if (listMisionesFiltradas.length > 0) {
+        renderSelectedMision(listMisionesFiltradas[0]);
+        misiones.setMisionSeleccionada(listMisionesFiltradas[0].id);
     }
 
-    if (misionesOrdenadas.length === 0) {
+    if (listMisionesFiltradas.length === 0) {
         const $noResults = new ElementoBuilder("div").clase("col-span-full text-center p-10");
         const $message = new ElementoBuilder("h3").clase("text-red-400 text-xl").texto("No se encontraron misiones");
         $noResults.hijo($message.build());
@@ -147,16 +124,17 @@ export function renderizarMisiones() {
         return;
     }
 
-    misionesOrdenadas.forEach((mision) => {
-        const card = renderCardMision(mision);
+    listMisionesFiltradas.forEach((mision) => {
+        const $card = renderCardMision(mision);
 
-        card.addEventListener("click", (e) => {
+        $card.addEventListener("click", (e) => {
             if (e.target.tagName === 'BUTTON' || e.target.closest('button')) return;
-            renderSelectedMision(mision);
+            misiones.setMisionSeleccionada(mision.id);
+            actualizarSelectMision(misiones.getMisionSeleccionada());
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
 
-        container.appendChild(card);
+        container.appendChild($card);
     });
 }
 
@@ -180,6 +158,60 @@ function configurarEventosFiltros() {
             renderizarMisiones();
         });
     }
+
+}
+
+function eventosActualizacion() {
+    const selectedContainer = document.getElementById("selected-mision-container");
+    if (!selectedContainer) return;
+
+    selectedContainer.addEventListener("click", (e) => {
+        const id = misiones.misionSeleccionada.obtener();
+        const mision = misiones.getMisionSeleccionada(id);
+        if (!mision) return;
+
+        if (e.target.id && e.target.id.startsWith("add-")) {
+            const recurso = e.target.id.replace("add-", "");
+            misiones.addRecursoMision(recurso, 1);
+            actualizarUI(mision, recurso);
+        }
+
+        if (e.target.id && e.target.id.startsWith("remove-")) {
+            const recurso = e.target.id.replace("remove-", "");
+            misiones.removeRecursoMision(recurso, 1);
+            actualizarUI(mision, recurso);
+        }
+    });
+
+
+}
+function actualizarSelectMision(mision) {
+    new ElementDom(`title-mision`).texto(mision.nombre);
+    new ElementDom(`badge-mision`).texto(`DIFICULTAD ${mision.dificultad}`).clase(`text-[9px] font-bold px-2 py-0.5 rounded border tracking-wider ${getDificultadColor(mision.dificultad)}`, "replace");
+    new ElementDom(`description-mision`).texto(mision.descripcion);
+    new ElementDom(`time-mision`).texto(`TIEMPO: ${mision.tiempo} min`);
+    new ElementDom(`reward-mision`).texto(`RECOMPENSA: ${mision.recompensa} pts`);
+    new ElementDom(`image-mision`).atributo(`src`, mision.imagen);
+
+    for (const recurso in mision.requerimientos) {
+        actualizarUI(mision, recurso);
+    }
+    mision.especialidades.forEach((especialidad, index) => {
+        const $specialtiesContainer = new ElementDom(`specialties-mision`);
+        if (index == 0) {
+            $specialtiesContainer.el.innerHTML = "";
+        }
+        const $specialtyBadge = new ElementoBuilder("span")
+            .clase("text-[9px] font-bold px-2 py-1 rounded bg-cyan-950/60 text-cyan-400 border border-cyan-500/30 tracking-wider")
+            .texto(especialidad.rol.toUpperCase());
+        $specialtiesContainer.hijo($specialtyBadge.build());
+    });
+
+
+}
+
+function actualizarUI(mision, recurso) {
+    new ElementDom(`reserva-${recurso}`).texto(`${mision.requerimientos[recurso]} / ${mision.consumo[recurso]}`);
 }
 
 // ============================================================================
@@ -187,5 +219,6 @@ function configurarEventosFiltros() {
 // ============================================================================
 export function initMisiones() {
     configurarEventosFiltros();
+    eventosActualizacion();
     renderizarMisiones();
 }

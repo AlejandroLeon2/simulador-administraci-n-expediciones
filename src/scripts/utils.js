@@ -25,3 +25,71 @@ export function crearElementoHtml(elemento, className, contenido) {
     }
 }
 
+export class ElementDom {
+    constructor(id) {
+        this.el = document.getElementById(id);
+        if (!this.el) {
+            console.warn(`Elemento con id "${id}" no encontrado`);
+        }
+    }
+
+    clase(className, mode = "add") {
+        if (!this.el) return this;
+
+        const clases = className.trim().split(/\s+/);
+
+        switch (mode) {
+            case "add":
+                clases.forEach(c => {
+                    if (!this.el.classList.contains(c)) {
+                        this.el.classList.add(c);
+                    }
+                });
+                break;
+
+            case "replace":
+                // Reemplaza todas las clases actuales por las nuevas
+                this.el.className = "";
+                this.el.classList.add(...clases);
+                break;
+
+            case "remove":
+                clases.forEach(c => this.el.classList.remove(c));
+                break;
+
+            case "toggle":
+                clases.forEach(c => this.el.classList.toggle(c));
+                break;
+        }
+
+        return this;
+    }
+
+    atributo(name, value) {
+        if (this.el) {
+            this.el.setAttribute(name, value);
+        }
+        return this;
+    }
+
+    texto(content) {
+        if (this.el) {
+            this.el.textContent = content;
+        }
+        return this;
+    }
+
+    bind(signal) {
+        if (this.el) {
+            signal.suscribir(valor => {
+                this.el.textContent = valor;
+            });
+        }
+        return this;
+    }
+    hijo(child) {
+        this.el.appendChild(child);
+        return this;
+    }
+
+}

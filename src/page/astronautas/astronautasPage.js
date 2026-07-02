@@ -1,12 +1,11 @@
 import "../../css/styles.css";
-import { astronautas as datosIniciales } from "../../data/astronautas.js";
-import { renderCardAstronauta } from "../../componentes/cardAstronauta.js";
+import { renderCardAstronauta } from "../../componentes/cards/cardAstronauta.js";
 import { renderSelectedAstronaut } from "../../componentes/renderSelectAstronauta.js";
 import { ElementoBuilder } from "../../scripts/elementHtml.js";
 import { FilterComponent } from "../../componentes/ui/filterComponents.js";
+import astronautas from "./astronautas.js";
 
 // 📦 ESTADO GLOBAL DE LA APLICACIÓN
-let listaAstronautas = [...datosIniciales];
 let busquedaTexto = "";
 let filtroEspecialidad = "TODOS";
 let astronautaEditando = null;
@@ -73,13 +72,13 @@ export function paginaAstronautas() {
     const $title = new ElementoBuilder("h1").clase("text-2xl font-black tracking-wider uppercase").texto("Panel de Tripulación");
     const $subtitle = new ElementoBuilder("p").clase("text-xs text-slate-400").texto("Gestión de personal y visualización biométrica del simulador.");
     $headerContent.hijo($title.build()).hijo($subtitle.build());
-    
+
     const $btnAgregar = new ElementoBuilder("button").clase("px-4 py-2 bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold text-xs uppercase rounded-lg transition-all cursor-pointer tracking-wider").atributo("id", "btn-agregar-astronauta").texto("+ Registrar Astronauta");
     $header.hijo($headerContent.build()).hijo($btnAgregar.build());
-    
+
     // Contenedor de astronauta seleccionado
     const $selectedContainer = new ElementoBuilder("div").clase("mb-6").atributo("id", "selected-astronaut-container");
-    
+
     // Contenedor de filtros usando componente genérico
     const $filtrosContainer = FilterComponent({
         ...configuracionFiltros.contenedor,
@@ -88,15 +87,15 @@ export function paginaAstronautas() {
             FilterComponent(configuracionFiltros.especialidad)
         ]
     });
-    
+
     // Contenedor de astronautas
     const $astronautasContainer = new ElementoBuilder("div").clase("grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 justify-items-center").atributo("id", "astronautas-container");
-    
+
     $mainContainer.hijo($header.build());
     $mainContainer.hijo($selectedContainer.build());
     $mainContainer.hijo($filtrosContainer);
     $mainContainer.hijo($astronautasContainer.build());
-    
+
     // Modal (mantenido como HTML string por complejidad)
     const modalHTML = `
         <div id="modal-astronauta" style="display: none;" class="fixed inset-0 z-50 bg-black/70 flex items-center justify-center p-4">
@@ -174,7 +173,7 @@ export function paginaAstronautas() {
             </div>
         </div>
     `;
-    
+
     return $mainContainer.build().outerHTML + modalHTML;
 }
 
@@ -188,7 +187,7 @@ function normalizar(texto) {
 
 // 🔍 FILTRADO
 function mostrarAstronautas() {
-    return listaAstronautas.filter((astronauta) => {
+    return astronautas.getListAstronautas().filter((astronauta) => {
         const coincideNombre = astronauta.nombre
             .toLowerCase()
             .includes(busquedaTexto.toLowerCase());
@@ -197,9 +196,9 @@ function mostrarAstronautas() {
         const espFiltro = normalizar(filtroEspecialidad);
 
         const coincideEspecialidad =
-        !espFiltro ||
-        espFiltro === "TODOS" ||
-        espAstronauta === espFiltro;
+            !espFiltro ||
+            espFiltro === "TODOS" ||
+            espAstronauta === espFiltro;
 
         return coincideNombre && coincideEspecialidad;
     });
@@ -242,7 +241,8 @@ export function renderizarAstronautas() {
         if (btnEliminar) {
             btnEliminar.addEventListener("click", (e) => {
                 e.stopPropagation();
-                eliminarAstronauta(astronauta.id);
+                astronautas.removeAstronauta(astronauta.id);
+                renderizarAstronautas();
             });
         }
 
@@ -280,24 +280,7 @@ function configurarEventosFiltros() {
 // OPERACIONES CRUD (AGREGAR, ELIMINAR, MODIFICAR)
 // =======================================================
 export function agregarAstronauta(nuevoAstro) {
-    const proximoId = listaAstronautas.length > 0 
-        ? Math.max(...listaAstronautas.map(a => a.id)) + 1 
-        : 1;
 
-    listaAstronautas.push({
-        id: proximoId,
-        nombre: nuevoAstro.nombre || "Sin Nombre",
-        especialidad: nuevoAstro.especialidad || "INGENIERO",
-        experiencia: Number(nuevoAstro.experiencia) || 10,
-        energia: 100,
-        salud: 100,
-        estado: "Disponible",
-        expediciones: 0,
-        imagen: nuevoAstro.imagen || "https://photoaid.com/images/before-after/after/default.png",
-        descripcion: nuevoAstro.descripcion || "Personal técnico integrado al panel de control."
-    });
-
-    renderizarAstronautas();
 }
 
 export function abrirModalEditar(astronauta) {
@@ -306,25 +289,9 @@ export function abrirModalEditar(astronauta) {
     document.getElementById("modal-especialidad").value = (astronauta.especialidad || "INGENIERO").toUpperCase();
     document.getElementById("modal-experiencia").value = astronauta.experiencia;
     document.getElementById("modal-descripcion").value = astronauta.descripcion || "";
-    
+
     // 🔧 MODIFICADO AQUÍ: Muestra usando Flex dinámico nativo
     document.getElementById("modal-astronauta").style.display = "flex";
-}
-
-export function modificarAstronauta(id, datosNuevos) {
-    listaAstronautas = listaAstronautas.map((astro) => {
-        if (astro.id === id) {
-            return { ...astro, ...datosNuevos };
-        }
-        return astro;
-    });
-    renderizarAstronautas();
-}
-
-export function eliminarAstronauta(id) {
-    if (!confirm("¿Deseas dar de baja a este astronauta?")) return;
-    listaAstronautas = listaAstronautas.filter(astro => astro.id !== id);
-    renderizarAstronautas();
 }
 
 function configurarBotonesGlobales() {
@@ -338,7 +305,7 @@ function configurarBotonesGlobales() {
     btnNuevo.addEventListener("click", () => {
         astronautaEditando = null;
         if (formulario) formulario.reset();
-        
+
         // 🔧 MODIFICADO AQUÍ: Muestra en flex al pulsar el botón de registro
         modal.style.display = "flex";
     });
@@ -353,28 +320,29 @@ function configurarBotonesGlobales() {
     if (formulario) {
         formulario.addEventListener("submit", (e) => {
             e.preventDefault();
-            const nombre = document.getElementById("modal-nombre").value;
-            const specialty = document.getElementById("modal-especialidad").value;
-            const exp = document.getElementById("modal-experiencia").value;
-            const desc = document.getElementById("modal-descripcion").value;
+            const $nombre = document.getElementById("modal-nombre").value;
+            const $specialty = document.getElementById("modal-especialidad").value;
+            const $exp = document.getElementById("modal-experiencia").value;
+            const $desc = document.getElementById("modal-descripcion").value;
 
             if (astronautaEditando) {
-                modificarAstronauta(astronautaEditando.id, {
-                    nombre,
-                    especialidad: specialty,
-                    experiencia: Number(exp),
-                    descripcion: desc
+                astronautas.modificarAstronauta(astronautaEditando, {
+                    nombre: $nombre,
+                    especialidad: $specialty,
+                    descripcion: $desc
                 });
+                renderizarAstronautas();
                 astronautaEditando = null;
             } else {
-                agregarAstronauta({
-                    nombre,
-                    especialidad: specialty,
-                    experiencia: Number(exp),
-                    descripcion: desc
-                });
+
+                astronautas.crearAstronauta(
+                    $nombre,
+                    $specialty,
+                    $desc
+                );
+                renderizarAstronautas();
             }
-            
+
             // 🔧 MODIFICADO AQUÍ: Oculta al guardar exitosamente
             modal.style.display = "none";
         });
