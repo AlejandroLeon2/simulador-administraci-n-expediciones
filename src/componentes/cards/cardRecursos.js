@@ -1,10 +1,10 @@
 
-import { iconCombustible } from "./icons/icon-combustible.js";
-import { iconComida } from "./icons/icon-comida.js";
-import { iconOxigeno } from "./icons/icon-oxigeno.js";
-import { iconEnergia } from "./icons/icon-energia.js";
-import { iconMonedas } from "./icons/icon-monedas.js";
-import { iconRecurso } from "./icons/icon-recurso.js";
+import { iconCombustible } from "../icons/icon-combustible.js";
+import { iconComida } from "../icons/icon-comida.js";
+import { iconOxigeno } from "../icons/icon-oxigeno.js";
+import { iconEnergia } from "../icons/icon-energia.js";
+import { iconMonedas } from "../icons/icon-monedas.js";
+
 
 // MAPA DE FUNCIONES
 const iconMap = {
@@ -96,6 +96,7 @@ export default function CardRecursos(recurso) {
             </div>
 
             <button
+                id="comprar-${recurso.clave}"
                 class="w-2/3 mt-3 mx-auto flex justify-center bg-emerald-900/50 text-white border-emerald-500 rounded-md hover:bg-emerald-500 hover:text-black transition-all cursor-pointer tracking-wider"
                 data-nombre="${recurso.nombre}">
                 🛒 Comprar Recurso

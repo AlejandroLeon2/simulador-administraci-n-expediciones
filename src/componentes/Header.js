@@ -1,13 +1,32 @@
-import { Recursos } from "../page/recursos/recursos";
+import recursos from "../page/recursos/recursos.js";
 export function Header() {
+    // Botón que modifica el estado
+    document.addEventListener("DOMContentLoaded", () => {
+        recursos.monedas.suscribir(value => {
+            document.getElementById("monedas-value").textContent = value;
+        });
+        recursos.comida.suscribir(value => {
+            document.getElementById("comida-value").textContent = value;
+        });
+        recursos.oxigeno.suscribir(value => {
+            document.getElementById("oxigeno-value").textContent = value;
+        });
+        recursos.energia.suscribir(value => {
+            document.getElementById("energia-value").textContent = value;
+        });
+        recursos.combustible.suscribir(value => {
+            document.getElementById("combustible-value").textContent = value;
+        });
+    });
+
     return `
             <header
                 class="fixed top-4 left-72 right-4 ml-6 h-14 bg-slate-900/60 backdrop-blur-md border border-slate-800/80 rounded-xl px-6 z-40">
 
             <div class="flex h-full items-center justify-between">
 
-                <div class="h-full flex-1 flex items-center border-r border-slate-700 px-8">
-                    <div class="flex items-center gap-3 w-full">
+                <div class="h-full flex-1 gap-4 flex items-center border-r border-slate-700 px-8">
+                    <div class="flex hidden items-center gap-3 w-full">
 
                         <span class="text-sm font-bold tracking-widest text-cyan-50 uppercase whitespace-nowrap">
                             Progreso Global
@@ -25,7 +44,11 @@ export function Header() {
                         </span>
 
                     </div>
-                </div>
+                <p class="text-xs text-white flex gap-2">comida: <span id="comida-value"> ${recursos.comida.obtener()}</span></p>
+                <p class="text-xs text-white flex gap-2">oxigeno: <span id="oxigeno-value"> ${recursos.oxigeno.obtener()}</span></p>
+                <p class="text-xs text-white flex gap-2">energia: <span id="energia-value"> ${recursos.energia.obtener()}</span></p>
+                <p class="text-xs text-white flex gap-2">combustible: <span id="combustible-value"> ${recursos.combustible.obtener()}</span></p>
+                  </div>
 
                 <div class="h-full flex items-center justify-center shrink-0"> <div class="flex items-center gap-3 pl-4 pr-4">
                         <span class="text-sm font-bold tracking-widest text-cyan-50 uppercase">
@@ -33,8 +56,8 @@ export function Header() {
                         </span>
 
                         <div class="flex items-center gap-1.5 bg-emerald-500/10 border border-emerald-500/20 px-3 py-1 rounded-lg">
-                            <span class="text-sm font-black text-emerald-400 font-mono">
-                                ${new Recursos().getMonedas()}
+                            <span id="monedas-value" class="text-sm font-black text-emerald-400 font-mono">
+                                ${recursos.monedas.obtener()}
                             </span>
 
                             <svg xmlns="http://www.w3.org/2000/svg"
@@ -56,3 +79,5 @@ export function Header() {
         </header>
     `;
 }
+
+
